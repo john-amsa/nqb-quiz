@@ -145,6 +145,10 @@ class Nqb_quiz {
 		 */
 		require_once plugin_dir_path( dirname( __FILE__ ) ) . 'public/class-nqb_quiz-public.php';
 
+		require_once plugin_dir_path( dirname( __FILE__ ) ) . 'includes/question loader/class-nqb_quiz-question_loader.php';
+        error_log("temporarily making a question loader here");
+		$ql = new Nqb_quiz_Question_Loader();
+        
 		$this->loader = new Nqb_quiz_Loader();
 
 	}
