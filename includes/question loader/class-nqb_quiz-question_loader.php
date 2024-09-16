@@ -20,6 +20,46 @@ class Nqb_quiz_Question_Loader {
         // Initialize the Question Creator
         $this->question_creator = new Nqb_quiz_Question_Creator();
         error_log("Nqb_quiz_Question_Creator initialized.");
+
+        $questions = $this->get_loaded_questions();
+        $this->question_creator->create_questions($questions);
+
+        // $this->create_questions_once();
+    }
+
+    /**
+      * Function to run only once during plugin activation
+      */
+    // public function create_questions_once() {
+    //     // Check if the function has already been run in this session
+    //     if (get_option('nqb_questions_created') === 'yes') {
+    //         error_log("Questions already created, skipping.");
+    //         return;
+    //     }
+
+    //     $questions = $this->get_loaded_questions();
+    //     if (!empty($questions)) {
+    //         $this->question_creator->create_questions($questions);
+    //         error_log("Questions created during plugin activation.");
+
+    //         // Mark that the questions have been created to avoid re-running
+    //         update_option('nqb_questions_created', 'yes');
+    //     } else {
+    //         error_log("No questions found during plugin activation.");
+    //     }
+    // }
+
+    
+
+
+    /**
+     * Retrieves questions from the CSV loader
+     * 
+     * @return array - Array of Question objects
+     */
+    public function get_loaded_questions() {
+        // Get the questions from the CSV loader
+        return $this->csv_loader->get_questions();
     }
 
 }
@@ -61,5 +101,50 @@ class Question {
             }
         }
         return null;
+    }
+    /**
+     * Truncate a string if it exceeds the specified length
+     *
+     * @param string $text - The text to truncate
+     * @param int $maxLength - The maximum length of the string
+     * @return string - The truncated string with "..." if needed
+     */
+    private function truncate($text, $maxLength = 50) {
+        if (strlen($text) > $maxLength) {
+            return substr($text, 0, $maxLength) . '...';
+        }
+        return $text;
+    }
+
+    /**
+     * Pretty prints the Question details to error_log, truncating long lines
+     */
+    public function pretty_print() {
+        error_log("Question:");
+        error_log("Type: " . $this->type);
+        error_log("Difficulty: " . $this->difficulty);
+        error_log("Stem: " . $this->truncate($this->stem));
+        error_log("Explanation: " . $this->truncate($this->explanation));
+
+        if (!empty($this->answerOptions)) {
+            error_log("Answer Options:");
+            foreach ($this->answerOptions as $index => $option) {
+                $answerText = $this->truncate($option->optionText);
+                $isCorrect = $option->isCorrect ? 'Correct' : 'Incorrect';
+                error_log(($index + 1) . ". " . $answerText . " (" . $isCorrect . ")");
+            }
+        } else {
+            error_log("No answer options available.");
+        }
+
+        $correctAnswer = $this->getCorrectAnswer();
+        if ($correctAnswer) {
+            error_log("Correct Answer: " . $this->truncate($correctAnswer));
+        } else {
+            error_log("No correct answer set.");
+        }
+
+        error_log("System: " . $this->truncate($this->system));
+        error_log("-------------------------------------------");
     }
 }
