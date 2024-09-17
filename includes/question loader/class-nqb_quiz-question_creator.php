@@ -104,10 +104,11 @@ class Nqb_quiz_Question_Creator {
 
         $terms[] = "cardiovascular";
     
-        // Set the terms in the 'question_category' taxonomy
-        if (!empty($terms)) {
-            wp_set_post_terms($question_id, $terms, 'question_category', true);
-        }
+        wp_set_post_terms($question_id, $terms, 'question_category', true);
+        
+        // Log the assigned terms to verify
+        $assigned_terms = wp_get_post_terms($question_id, 'question_category');
+        error_log('Assigned terms: ' . print_r($assigned_terms, true));
     
         
     }
@@ -145,7 +146,7 @@ class Nqb_quiz_Question_Creator {
 }
 
 
-// class Nqb_quiz_Question_Creator {
+// class Nqb_quiz_Question_Creator { // tried to do too much at once and cant figure out whats broken
 
     
 //         // Define constants for quiz shortcode and metadata
