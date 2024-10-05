@@ -93,7 +93,7 @@ class Nqb_quiz_Csv_Loader {
         $stem = $row[3];  // Question Stem
         $answer_options_str = $row[4];  // Answer Options (formatted as you provided)
         $explanation = $row[5];  // Explanation
-        // $system = $system;  // Add this if necessary, not part of the current CSV columns
+        $system = $system;  
 
         // Check if the stem is empty, skip the question if it is
         if (empty(trim($stem))) {

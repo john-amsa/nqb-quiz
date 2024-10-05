@@ -97,7 +97,74 @@ class Nqb_quiz_Admin {
 		 */
 
 		wp_enqueue_script( $this->plugin_name, plugin_dir_url( __FILE__ ) . 'js/nqb_quiz-admin.js', array( 'jquery' ), $this->version, false );
+		// Localize script for AJAX call
+		wp_localize_script( $this->plugin_name, 'nqb_quiz_ajax_object', array( 
+			'ajax_url' => admin_url( 'admin-ajax.php' ),
+			'nonce'    => wp_create_nonce( 'nqb_quiz_nonce' )
+		) );
+	}
 
+	/**
+	 * Add an admin menu item and page.
+	 *
+	 * @since    1.0.0
+	 */
+	public function add_admin_menu() {
+		add_menu_page(
+			'Load CSVs',                // Page title
+			'Load CSVs',                // Menu title
+			'manage_options',           // Capability
+			'nqb_quiz_load_csv',        // Menu slug
+			array( $this, 'display_page' ),  // Function to display the page content
+			'dashicons-upload',         // Icon
+			80                          // Position
+		);
+	}
+
+	/**
+	 * Display the admin page with the button.
+	 *
+	 * @since    1.0.0
+	 */
+	public function display_page() {
+		?>
+		<div class="wrap">
+			<h1>Load CSVs</h1>
+			<button id="load-csvs" class="button button-primary">Load CSVs</button>
+			<p id="csv-loader-result"></p>
+		</div>
+		<?php
+	}
+
+	/**
+	 * Handle the AJAX request for running the question loader.
+	 *
+	 * @since    1.0.0
+	 */
+	public function load_csvs() {
+		check_ajax_referer( 'nqb_quiz_nonce', 'security' );
+
+		require_once dirname( plugin_dir_path( __FILE__ ) ) . '/includes/question loader/class-nqb_quiz-question_loader.php';
+		error_log("run question loader called from admin");
+		// Call the function from the class
+		$question_loader = new Nqb_Quiz_Question_Loader();
+		$result = $question_loader->run_question_loader();
+
+		// Return a response
+		if ( $result ) {
+			wp_send_json_success( 'CSV files loaded successfully!' );
+		} else {
+			wp_send_json_error( 'Failed to load CSV files.' );
+		}
+	}
+
+	/**
+	 * Initialize AJAX actions.
+	 *
+	 * @since 1.0.0
+	 */
+	public function ajax_init() {
+		add_action( 'wp_ajax_load_csvs', array( $this, 'load_csvs' ) );
 	}
 
 }

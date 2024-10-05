@@ -30,3 +30,11 @@ function register_question_category_taxonomy() {
 }
 // 
 add_action('init', 'register_question_category_taxonomy', 0);
+
+
+
+
+nqb_quiz.php 
+    runs Nqb_quiz_Activator which creates a Nqb_question_Loader
+    creates a Nqb_quiz instance and calls Nqb_quiz->run
+

@@ -129,7 +129,7 @@ class Nqb_quiz {
 		 */
 		require_once plugin_dir_path( dirname( __FILE__ ) ) . 'includes/class-nqb_quiz-loader.php';
 
-        $this->loader = new Nqb_quiz_Loader(); // is this right?
+        $this->loader = new Nqb_quiz_Loader(); 
     
 		/**
 		 * The class responsible for defining internationalization functionality
@@ -184,6 +184,10 @@ class Nqb_quiz {
 		$this->loader->add_action( 'admin_enqueue_scripts', $plugin_admin, 'enqueue_styles' );
 		$this->loader->add_action( 'admin_enqueue_scripts', $plugin_admin, 'enqueue_scripts' );
 
+        // add button in admin menu for converting CSVs into ld-questions
+        $this->loader->add_action( 'admin_menu', $plugin_admin, 'add_admin_menu' );
+        // Handle the AJAX request for loading CSVs
+        $this->loader->add_action( 'wp_ajax_load_csvs', $plugin_admin, 'load_csvs' );
 	}
 
 	/**
@@ -242,6 +246,10 @@ class Nqb_quiz {
 		return $this->version;
 	}
 
+    /**
+     * this is the main filter for custom filtering the ldquiz so that only the user's selected find_questions
+     * categories shows up. hooks onto learndash_fetch_quiz_questions
+     */
 	public function load_filter() { //
         add_filter('learndash_fetch_quiz_questions', array($this, 'filter_questions'), 10, 4);
     }
@@ -253,13 +261,16 @@ class Nqb_quiz {
 
         // get selection from cookies
         $user_selection = $this->retrieve_selection();
-        error_log("User selection contents: " . print_r($user_selection, true));
+        error_log("User selection contents: " . print_r(json_encode($user_selection), true));
 
         // find the qs that satisfy the selection
         $filtered_questions = $this->find_questions($user_selection,$pro_questions);
 
-        // $filtered_questions = $pro_questions;
-        error_log(count($filtered_questions));
+        // this line turns the filter off for debugging
+        $filtered_questions = $pro_questions;
+
+        error_log(print_r($pro_questions,true)); 
+        error_log("returning " .  count($filtered_questions) .  " questions");
        // Return the filtered questions
         return $filtered_questions;
     }
@@ -276,18 +287,20 @@ class Nqb_quiz {
 
         // load the helper filter with the user's selection
         $filter = new Filter_Helper($user_selection);
-        error_log(print_r($filter->get_user_selection(),true));
+        // error_log(print_r($filter->get_user_selection(),true));
+        error_log("Starting Filtering");
 
         // iterate over the questions 
         foreach (  $pro_questions as $question){
             $question_id = $question->getQuestionPostId();
             $question_terms = wp_get_post_terms($question_id, 'question_category'); //extract the terms
             
+            // if this question's terms exist in our user's requiest, add it to filtered questions
             if ($filter->found($question_terms)){
                 $filtered_questions[] = $question;
-                error_log("including question $question_id");
+                error_log("\tincluding question $question_id");
             } else {
-                error_log("Question removed: $question_id");
+                error_log("\tQuestion removed: $question_id");
             }
         }
         error_log("the count is " . count($filtered_questions));        
@@ -299,7 +312,7 @@ class Nqb_quiz {
     public function retrieve_selection() {
         if (isset($_COOKIE['user_selection'])) {
             $selection = json_decode(wp_unslash($_COOKIE['user_selection']), true); // No need for stripslashes here
-            error_log("User selection retrieved: " . print_r($selection, true));
+            // error_log("User selection retrieved: " . print_r($selection, true));
             return $selection;
         } else {
             error_log("No user selection found in cookies.");
@@ -315,7 +328,9 @@ class Nqb_quiz {
         $this->register_shortcodes();
         $this->add_actions();
     }
-
+    /**
+     * creates the form page where the user can select their question categories
+     */
     public static function create_pages() {
         // todo : prevent this from happening if these pages already exist on activation
         
@@ -327,6 +342,8 @@ class Nqb_quiz {
             'post_type'    => 'page',
         );
         wp_insert_post($form_page);
+
+
         // // this one displays the results for now. will be turned into a quiz later
         // $display_page = array(
         //     'post_title'   => 'Display Page',
@@ -345,9 +362,12 @@ class Nqb_quiz {
     public function register_shortcodes() {
         add_shortcode('unique_form_page', array($this, 'render_form'));
         // add_shortcode('unique_display_page', array($this, 'render_display'));
-        error_log("short codes registered");
+        // error_log("short codes registered");
     }
 
+    /** 
+     * the form that will be displayed to the user
+     */
     public function render_form() {
         error_log("rendering form");
         ob_start();
@@ -383,7 +403,7 @@ class Nqb_quiz {
 
     public  function add_actions() {
         // when plugin is loaded
-        error_log("add actions being called");
+        // error_log("add actions being called");
         //shortcodes contain page content
         // add_action('init', array($this, 'register_shortcodes'));
         // $this->register_shortcodes();
@@ -497,8 +517,9 @@ class Filter_Helper{
         $difficulty_flag = false;
         $systems_flag = false;
 
-        error_log("terms Higher: ");
-        error_log(print_r($terms,true));
+        // error_log("terms Higher: ");
+        // error_log(print_r($terms,true));
+        // prints the wp taxonomy terms out in detail
 
     
         // Iterate through each term
@@ -506,7 +527,7 @@ class Filter_Helper{
         
             if (is_a($term, 'WP_Term')) {
                 $slug = $term->slug;
-                error_log("slug is $slug");
+                error_log("\t\tslug is $slug");
             } else {
                 error_log("idk what this is " . print_r($term,true));
                 continue;

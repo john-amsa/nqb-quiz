@@ -10,9 +10,24 @@ class Nqb_quiz_Question_Loader {
         require_once 'class-nqb_quiz-question_creator.php';
         require_once 'class-nqb_quiz-csv_loader.php';
 
-        // Log the start of the constructor
-        error_log("Nqb_quiz_Question_Loader initialized.");
+        // // Log the start of the constructor
+        // error_log("Nqb_quiz_Question_Loader initialized.");
 
+        // // Initialize the CSV loader
+        // $this->csv_loader = new Nqb_quiz_Csv_Loader();
+        // error_log("Nqb_quiz_Csv_Loader initialized.");
+
+        // // Initialize the Question Creator
+        // $this->question_creator = new Nqb_quiz_Question_Creator();
+        // error_log("Nqb_quiz_Question_Creator initialized.");
+
+        // $questions = $this->get_loaded_questions();
+        // $this->question_creator->create_questions($questions);
+
+        // // $this->create_questions_once();
+    }
+
+    public function run_question_loader(){
         // Initialize the CSV loader
         $this->csv_loader = new Nqb_quiz_Csv_Loader();
         error_log("Nqb_quiz_Csv_Loader initialized.");
@@ -24,7 +39,7 @@ class Nqb_quiz_Question_Loader {
         $questions = $this->get_loaded_questions();
         $this->question_creator->create_questions($questions);
 
-        // $this->create_questions_once();
+        return "yay";
     }
 
     /**
@@ -123,6 +138,7 @@ class Question {
         error_log("Question:");
         error_log("Type: " . $this->type);
         error_log("Difficulty: " . $this->difficulty);
+        error_log("System: " .  $this->system);
         error_log("Stem: " . $this->truncate($this->stem));
         error_log("Explanation: " . $this->truncate($this->explanation));
 
