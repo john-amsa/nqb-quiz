@@ -63,6 +63,8 @@ class Nqb_quiz {
 
     protected $selector_form = null; // the page id with the selection form on it
 
+    private static $SEARCH_FACTOR = 3;
+
 	/**
 	 * Define the core functionality of the plugin.
 	 *
@@ -90,6 +92,7 @@ class Nqb_quiz {
 		add_action('plugins_loaded', array($this,'load_filter'));
 
 		add_action( 'init', [ $this, 'run_selection_form' ] );
+        // this create pages is broken, just use init to make one for now
         register_activation_hook(__FILE__, array($this, 'create_pages'));
 
 
@@ -254,7 +257,10 @@ class Nqb_quiz {
         add_filter('learndash_fetch_quiz_questions', array($this, 'filter_questions'), 10, 4);
     }
 
-    // hooked onto learndash's filter quiz questions
+    /** 
+     * hooked onto learndash's filter quiz questions
+     * 
+     */
     public function filter_questions($pro_questions, $quiz_id, $rand, $max) {
         // Log the quiz ID
         error_log('Quiz ID: ' . $quiz_id);
@@ -267,46 +273,167 @@ class Nqb_quiz {
         $filtered_questions = $this->find_questions($user_selection,$pro_questions);
 
         // this line turns the filter off for debugging
-        $filtered_questions = $pro_questions;
+        // $filtered_questions = $pro_questions;
 
         error_log(print_r($pro_questions,true)); 
-        error_log("returning " .  count($filtered_questions) .  " questions");
+        error_log("found " .  count($filtered_questions) .  " questions");
+
+        // $filtered_questions = $this->limit_questions($filtered_questions,2);
+        $this->remember_seen_questions($filtered_questions);
+
+
        // Return the filtered questions
         return $filtered_questions;
     }
+
+    function limit_questions($questions, $limit) {
+        if (!is_array($questions) || !is_int($limit) || $limit < 1) {
+            return $questions;
+        }
+        
+        return array_slice($questions, 0, $limit);
+    }
+    
+    function remember_seen_questions($questions, $user_id = null) {
+        if (!$user_id) {
+            $user_id = get_current_user_id();
+        }
+        
+        if (!$user_id || !is_array($questions)) {
+            return false;
+        }
+        
+        // Get existing seen questions
+        $seen_questions = get_user_meta($user_id, 'seen_questions', true);
+        if (!is_array($seen_questions)) {
+            $seen_questions = array();
+        }
+        
+        // Extract question IDs and merge with existing
+        $question_ids = array_map(function($question) {
+            if ($question instanceof WpProQuiz_Model_Question) {
+                return $question->getQuestionPostId();
+            } elseif (is_array($question)) {
+                return isset($question['id']) ? $question['id'] : null;
+            }
+            return null;
+        }, $questions);
+        
+        // Filter out null values and merge with existing
+        $question_ids = array_filter($question_ids);
+        $seen_questions = array_unique(array_merge($seen_questions, $question_ids));
+        // todo better way to do this
+        
+        // Update user meta
+        update_user_meta($user_id, 'seen_questions', $seen_questions);
+        
+        // Log user metadata for verification
+        $all_user_meta = get_user_meta($user_id);
+        error_log('User Metadata after update:');
+        error_log(print_r($all_user_meta, true));
+        
+        return $seen_questions;
+    }
+    
+    
+
     /**
      * finds the questions which satisfies a user's selection
      * @param array $user_selection (a dictionary from the json)
      * @param mixed $pro_questions (Array: the pro_questions that come with the filter)
      * @return array
      */
-    private function find_questions($user_selection,$pro_questions){
+    // private function find_questions($user_selection,$pro_questions){
 
+    //     // the array to return
+    //     $filtered_questions = array();
+
+    //     // load the helper filter with the user's selection
+    //     $filter = new Filter_Helper($user_selection);
+    //     // error_log(print_r($filter->get_user_selection(),true));
+    //     error_log("Starting Filtering");
+
+    //     // iterate over the questions 
+    //     foreach (  $pro_questions as $question){
+    //         $question_id = $question->getQuestionPostId();
+    //         $question_terms = wp_get_post_terms($question_id, 'question_category'); //extract the terms
+            
+    //         error_log("Filter Check - User Selection: " . print_r($filter->get_user_selection(), true) . " | Question ID: " . $question_id . " | Question Terms: " . print_r($question_terms, true));
+        
+    //         // if this question's terms exist in our user's requiest, add it to filtered questions
+    //         if ($filter->found($question_terms)){
+    //             $filtered_questions[] = $question;
+    //             error_log("\tincluding question $question_id");
+    //         } else {
+    //             error_log("\tQuestion removed: $question_id");
+    //         }
+    //     }
+    //     error_log("the count is " . count($filtered_questions));        
+        
+    //     return $filtered_questions;
+    // }
+
+    private function find_questions($user_selection, $pro_questions, $target_count = 500) {
         // the array to return
         $filtered_questions = array();
-
+        
         // load the helper filter with the user's selection
         $filter = new Filter_Helper($user_selection);
-        // error_log(print_r($filter->get_user_selection(),true));
         error_log("Starting Filtering");
-
-        // iterate over the questions 
-        foreach (  $pro_questions as $question){
-            $question_id = $question->getQuestionPostId();
-            $question_terms = wp_get_post_terms($question_id, 'question_category'); //extract the terms
+        
+        // Calculate initial batch size (3x target)
+        $batch_size = $target_count * 3;
+        $total_questions = count($pro_questions);
+        $current_position = 0;
+        
+        while (count($filtered_questions) < $target_count && $current_position < $total_questions) {
+            // Calculate end position for current batch
+            $end_position = min($current_position + $batch_size, $total_questions);
+            error_log("Searching batch from position $current_position to $end_position");
             
-            // if this question's terms exist in our user's requiest, add it to filtered questions
-            if ($filter->found($question_terms)){
-                $filtered_questions[] = $question;
-                error_log("\tincluding question $question_id");
-            } else {
-                error_log("\tQuestion removed: $question_id");
+            // Get current batch of questions
+            $current_batch = array_slice($pro_questions, $current_position, $batch_size);
+            
+            // Process the current batch
+            foreach ($current_batch as $question) {
+                $question_id = $question->getQuestionPostId();
+                $question_terms = wp_get_post_terms($question_id, 'question_category');
+                
+                error_log("Filter Check - User Selection: " . print_r($filter->get_user_selection(), true) . 
+                         " | Question ID: " . $question_id . 
+                         " | Question Terms: " . print_r($question_terms, true));
+            
+                if ($filter->found($question_terms)) {
+                    $filtered_questions[] = $question;
+                    error_log("\tincluding question $question_id");
+                    
+                    // If we've found enough questions, break out
+                    if (count($filtered_questions) >= $target_count) {
+                        error_log("Found target number of questions. Stopping search.");
+                        break;
+                    }
+                } else {
+                    error_log("\tQuestion removed: $question_id");
+                }
+            }
+            
+            // Prepare for next batch if needed
+            $current_position += $batch_size;
+            
+            // Log progress
+            error_log("Current filtered question count: " . count($filtered_questions));
+            if ($current_position < $total_questions && count($filtered_questions) < $target_count) {
+                error_log("Not enough questions found. Continuing to next batch...");
             }
         }
-        error_log("the count is " . count($filtered_questions));        
+        
+        error_log("Final count is " . count($filtered_questions) . 
+                  " after searching " . min($current_position, $total_questions) . 
+                  " out of " . $total_questions . " total questions");
         
         return $filtered_questions;
     }
+    
 
     // get user's selection from cookies
     public function retrieve_selection() {
@@ -391,9 +518,12 @@ class Nqb_quiz {
             </select><br><br>
 
             <label for="systems">Systems: (only systems selection works atm)</label><br>
-            <input type="checkbox" name="systems" value="cardiovascular"> Cardiovascular<br>
+            <input type="checkbox" name="systems" value="cardiology"> Cardiovascular<br>
             <input type="checkbox" name="systems" value="respiratory"> Respiratory<br>
-            <input type="checkbox" name="systems" value="git"> GIT<br><br>
+            <input type="checkbox" name="systems" value="gastroenterology"> GIT<br><br>
+
+
+            <input type="checkbox" name="difficulty" value="hard"> hard<br><br>
 
             <input type="button" id="submit-button" value="Submit">
         </form>
@@ -496,73 +626,172 @@ class Filter_Helper{
     }
 
     /**
-     * returns true if terms satisfies the user's search keywords
+     * Returns true if terms satisfies the user's search keywords
      * 
-     * @param array of WP_Term objects $terms
+     * @param array $terms Array of WP_Term objects
      * @return bool
      */
-    function found($terms){
-        // return true;
-
-        if ($this->user_selection==null){
-            // need to set that first
-            error_log('user selection unset');
+    function found_old($terms) {
+        if ($this->user_selection === null) {
+            error_log('[NQB Quiz] Error: user_selection is not set');
             return false;
         }
 
         $search_keywords = $this->user_selection;
         $type_flag = false;
-        // $difficulty_count = count($search_keywords['difficulty']);
-        // $systems_count = count($search_keywords['systems']);
         $difficulty_flag = false;
         $systems_flag = false;
 
-        // error_log("terms Higher: ");
-        // error_log(print_r($terms,true));
-        // prints the wp taxonomy terms out in detail
+        error_log('[NQB Quiz] Starting term search with criteria: ' . json_encode([
+            'type' => $search_keywords['type'],
+            'difficulty_options' => array_keys($search_keywords['difficulty']),
+            'system_options' => array_keys($search_keywords['systems'])
+        ]));
 
-    
+        error_log('[NQB Quiz] Number of terms to check: ' . count($terms));
+
         // Iterate through each term
-        foreach ($terms as $term) {
-        
-            if (is_a($term, 'WP_Term')) {
-                $slug = $term->slug;
-                error_log("\t\tslug is $slug");
-            } else {
-                error_log("idk what this is " . print_r($term,true));
+        foreach ($terms as $index => $term) {
+            if (!is_a($term, 'WP_Term')) {
+                error_log('[NQB Quiz] Warning: Invalid term object at index ' . $index . ': ' . print_r($term, true));
                 continue;
             }
+
+            $slug = $term->slug;
+            $taxonomy = $term->taxonomy;
             
-            // Check if the term is in search_keywords['systems']
-            if (array_key_exists($slug,$search_keywords['systems'])) {
-                error_log("system match");
-                $systems_flag=true;
-            }
-    
-            // Check if the term is in search_keywords['difficulty']
-            if (array_key_exists($slug,$search_keywords['difficulty'])) {
-                error_log("diff match");
+            error_log(sprintf(
+                '[NQB Quiz] Checking term %d: {slug: %s, taxonomy: %s, term_id: %d}',
+                $index,
+                $slug,
+                $taxonomy,
+                $term->term_id
+            ));
 
-                $difficulty_flag=true;
+            // Check system match
+            if (array_key_exists($slug, $search_keywords['systems'])) {
+                error_log('[NQB Quiz] ✓ System match found: ' . $slug);
+                $systems_flag = true;
             }
-    
-            // Check if the term matches search_keywords['type']
-            if ($slug == $search_keywords['type']) {
-                error_log("type match");
 
+            // Check difficulty match
+            if (array_key_exists($slug, $search_keywords['difficulty'])) {
+                error_log('[NQB Quiz] ✓ Difficulty match found: ' . $slug);
+                $difficulty_flag = true;
+            }
+
+            // Check type match
+            if ($slug === $search_keywords['type']) {
+                error_log('[NQB Quiz] ✓ Type match found: ' . $slug);
                 $type_flag = true;
             }
-            // if valid, return early
-            if ($type_flag && $difficulty_flag && $systems_flag){   //$systems_count == 0 && $difficulty_count == 0) {
+
+            // Log current state of all flags
+            error_log('[NQB Quiz] Current match status: ' . json_encode([
+                'type' => $type_flag,
+                'difficulty' => $difficulty_flag,
+                'systems' => $systems_flag
+            ]));
+
+            // Early return if all conditions met
+            if ($type_flag && $difficulty_flag && $systems_flag) {
+                error_log('[NQB Quiz] ✓ All criteria matched - returning true');
                 return true;
-            } 
+            }
         }
-    
-        // Check if the conditions are met to return true
-        if ($type_flag && $difficulty_flag && $systems_flag){   //$systems_count == 0 && $difficulty_count == 0) {
-            return true; //can remove
-        } else {
+
+        // Log final state if no match found
+        error_log('[NQB Quiz] ✗ No complete match found. Final status: ' . json_encode([
+            'type' => $type_flag,
+            'difficulty' => $difficulty_flag,
+            'systems' => $systems_flag
+        ]));
+
+        return false;
+    }
+
+    /**
+     * Returns true if terms satisfies the user's search keywords
+     * 
+     * @param array $terms Array of WP_Term objects
+     * @return bool
+     */
+    function found($terms) {
+        if ($this->user_selection === null) {
+            error_log('[NQB Quiz] Error: user_selection is not set');
             return false;
         }
+
+        $search_keywords = $this->user_selection;
+        $type_flag = false;
+        $difficulty_flag = false;
+        $systems_flag = false;
+
+        error_log('[NQB Quiz] Starting term search with criteria: ' . json_encode([
+            'type' => $search_keywords['type'],
+            'difficulty_options' => array_keys($search_keywords['difficulty']),
+            'system_options' => array_keys($search_keywords['systems'])
+        ]));
+
+        error_log('[NQB Quiz] Number of terms to check: ' . count($terms));
+
+        // Iterate through each term
+        foreach ($terms as $index => $term) {
+            if (!is_a($term, 'WP_Term')) {
+                error_log('[NQB Quiz] Warning: Invalid term object at index ' . $index . ': ' . print_r($term, true));
+                continue;
+            }
+
+            $slug = $term->slug;
+            $taxonomy = $term->taxonomy;
+            
+            error_log(sprintf(
+                '[NQB Quiz] Checking term %d: {slug: %s, taxonomy: %s, term_id: %d}',
+                $index,
+                $slug,
+                $taxonomy,
+                $term->term_id
+            ));
+
+            // Check system match
+            if (array_key_exists($slug, $search_keywords['systems'])) {
+                error_log('[NQB Quiz] ✓ System match found: ' . $slug);
+                $systems_flag = true;
+            }
+
+            // Check difficulty match
+            if (array_key_exists($slug, $search_keywords['difficulty'])) {
+                error_log('[NQB Quiz] ✓ Difficulty match found: ' . $slug);
+                $difficulty_flag = true;
+            }
+
+            // Check type match
+            if ($slug === $search_keywords['type']) {
+                error_log('[NQB Quiz] ✓ Type match found: ' . $slug);
+                $type_flag = true;
+            }
+
+            // Log current state of all flags
+            error_log('[NQB Quiz] Current match status: ' . json_encode([
+                'type' => $type_flag,
+                'difficulty' => $difficulty_flag,
+                'systems' => $systems_flag
+            ]));
+
+            // Early return if all conditions met
+            if ($type_flag && $difficulty_flag && $systems_flag) {
+                error_log('[NQB Quiz] ✓ All criteria matched - returning true');
+                return true;
+            }
+        }
+
+        // Log final state if no match found
+        error_log('[NQB Quiz] ✗ No complete match found. Final status: ' . json_encode([
+            'type' => $type_flag,
+            'difficulty' => $difficulty_flag,
+            'systems' => $systems_flag
+        ]));
+
+        return false;
     }
 }

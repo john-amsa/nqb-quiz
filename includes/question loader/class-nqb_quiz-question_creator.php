@@ -4,20 +4,44 @@
 class Nqb_quiz_Question_Creator {
 
     // Define constants for quiz shortcode and metadata
-    const QUIZ_ID = 609; // Replace with your quiz ID
-    const ADV_QUIZ_ID = 17; // Replace with your LDAdvQuiz ID
-    const TOP_LIST_ID = 17; // Replace with your LDAdvQuiz_toplist ID
+    const QUIZ_ID = 177; // Replace with your quiz ID
+    const ADV_QUIZ_ID = 1; // Replace with your LDAdvQuiz ID
+    const TOP_LIST_ID = 1; // Replace with your LDAdvQuiz_toplist ID
 
     const QUESTIONTAXONOMY = 'question_category';
 
     private $term_id_lookup;
+    // Define parent categories and their allowed children
+    private $hierarchy = array(
+        'type' => array('clinical', 'preclinical'),
+        'difficulty' => array('easy', 'medium', 'hard'),
+        'system' => array() // All other tags will be considered systems
+    );
 
     public function __construct() {
         // Log the initialization of the Question Creator
         error_log("Nqb_quiz_Question_Creator initialized.");
 
+        $term_id_lookup = $this->term_id_lookup;
+
+        
+        // Define parent categories and their allowed children
+        $hierarchy = $this->hierarchy;
+        
+        // First ensure parent categories exist
+        foreach(array_keys($hierarchy) as $parent) {
+            if (!isset($term_id_lookup[$parent])) {
+                $result = wp_insert_term($parent, 'question_category');
+                if (!is_wp_error($result)) {
+                    $term_id_lookup[$parent] = $result['term_id'];
+                }
+            }
+        }
+
+        error_log("term id lookup: " . print_r($term_id_lookup,true));
+
         $this->term_id_lookup = $this->get_all_question_category_terms();
-        error_log(print_r($term_id_lookup,true)); 
+        error_log("term id lookup" . print_r($term_id_lookup,true)); 
     }
 
     /**
@@ -188,7 +212,7 @@ class Nqb_quiz_Question_Creator {
         $system = $question->system;       
         $correctAnswerText = $question->getCorrectAnswer();
 
-        error_log("verifying ssm " . $system);
+        error_log("verifying ssm " . print_r($system,true));
 
 
         // prepare the post
@@ -229,9 +253,8 @@ class Nqb_quiz_Question_Creator {
         $this->question_add_answers($question_pro_id, $question_id, $answerOptions, $stem);
         error_log("created one question at qid ". $question_id . "and proid " . $question_pro_id); 
         
-        $tags = array($system, $difficulty, $type);
-        $this->question_add_taxonomy($question_id,  $tags);
-        
+        $tags = array_merge([$difficulty, $type], $system);
+        $this->add_taxonomy($question_id, $tags);
         
         return $question_id;
     }
@@ -340,40 +363,116 @@ class Nqb_quiz_Question_Creator {
 
 
 
-
-
-    private function add_taxonomy($question_id, $system, $category, $type) {
-        // Ensure the question is valid
-        if (get_post_type($question_id) !== 'sfwd-question') {
-            return 'Invalid question ID';
-        }
-    
-        // Prepare the taxonomy terms array
-        $terms = array();
-    
-        // Check and assign terms for system, category, and type
-        if (!empty($system)) {
-            $terms[] = $system;
-        }
-        if (!empty($category)) {
-            $terms[] = $category;
-        }
-        if (!empty($type)) {
-            $terms[] = $type;
-        }
-
-        $terms[] = "cardiovascular";
-
-        error_log(print_r($terms)); 
-    
-        wp_set_post_terms($question_id, $terms, 'question_category', true);
+    function add_taxonomy($question_id, $all_tags) {
+        $term_id_lookup = $this->term_id_lookup;
+        $hierarchy = $this->hierarchy;
+        // retrieve
         
-        // Log the assigned terms to verify
-        $assigned_terms = wp_get_post_terms($question_id, 'question_category');
-        error_log('Assigned terms: ' . print_r($assigned_terms, true));
-    
+        error_log("Adding taxonomy for question ID: " . $question_id);
+        error_log("Tags to add: " . print_r($all_tags, true));
+        error_log("Current term_id_lookup: " . print_r($term_id_lookup, true));
         
+        $term_ids = array(); // Collection of term IDs to set
+        
+        foreach ($all_tags as $tag) {
+            $tag = strtolower(trim($tag));
+            
+            // Skip if tag is empty
+            if (empty($tag)) {
+                error_log("Skipping empty tag");
+                continue;
+            }
+            
+            error_log("Processing tag: " . $tag);
+            
+            // If tag already exists, just add its ID
+            if (isset($term_id_lookup[$tag])) {
+                error_log("Tag already exists in lookup with ID: " . $term_id_lookup[$tag]);
+                $term_ids[] = $term_id_lookup[$tag];
+                continue;
+            }
+            
+            // Determine parent category for tag
+            $parent_term_id = 0;
+            
+            if (in_array($tag, $hierarchy['type'])) {
+                error_log("Tag is a type. Setting parent to: " . $term_id_lookup['type']);
+                $parent_term_id = $term_id_lookup['type'];
+            } elseif (in_array($tag, $hierarchy['difficulty'])) {
+                error_log("Tag is a difficulty. Setting parent to: " . $term_id_lookup['difficulty']);
+                $parent_term_id = $term_id_lookup['difficulty'];
+            } else {
+                error_log("Tag is assumed to be a system. Setting parent to: " . $term_id_lookup['system']);
+                $parent_term_id = $term_id_lookup['system'];
+            }
+            
+            // Create new term as child of appropriate parent
+            error_log("Attempting to create new term: " . $tag . " with parent ID: " . $parent_term_id);
+            $result = wp_insert_term(
+                $tag,
+                'question_category',
+                array('parent' => $parent_term_id)
+            );
+            
+            if (!is_wp_error($result)) {
+                error_log("Successfully created term. New term ID: " . $result['term_id']);
+                $term_id_lookup[$tag] = $result['term_id'];
+                $term_ids[] = $result['term_id'];
+            } else {
+                error_log("Error creating term: " . $result->get_error_message());
+            }
+        }
+        
+        error_log("Final term IDs to set: " . print_r($term_ids, true));
+        
+        // Set all terms at once
+        if (!empty($term_ids)) {
+            $set_terms_result = wp_set_post_terms($question_id, $term_ids, 'question_category');
+            if (is_wp_error($set_terms_result)) {
+                error_log("Error setting terms: " . $set_terms_result->get_error_message());
+            } else {
+                error_log("Successfully set terms for question ID: " . $question_id);
+            }
+        } else {
+            error_log("No terms to set for question ID: " . $question_id);
+        }
+
+        $this->term_id_lookup = $term_id_lookup;
     }
+    
+
+    // private function add_taxonomy($question_id, $all_tags) {
+    //     // Ensure the question is valid
+    //     if (get_post_type($question_id) !== 'sfwd-question') {
+    //         return 'Invalid question ID';
+    //     }
+    
+    //     // Prepare the taxonomy terms array
+    //     $terms = array();
+    
+    //     // Check and assign terms for system, category, and type
+    //     if (!empty($system)) {
+    //         $terms[] = $system;
+    //     }
+    //     if (!empty($category)) {
+    //         $terms[] = $category;
+    //     }
+    //     if (!empty($type)) {
+    //         $terms[] = $type;
+    //     }
+
+    //     $terms[] = "cardiovascular"; // todo: this will need to be fixed
+
+    //     error_log(print_r($terms)); 
+    
+    //     wp_set_post_terms($question_id, $terms, 'question_category', true);
+        
+    //     // Log the assigned terms to verify
+    //     $assigned_terms = wp_get_post_terms($question_id, 'question_category');
+    //     error_log('Assigned terms: ' . print_r($assigned_terms, true));
+    
+        
+    // }
     
 
 

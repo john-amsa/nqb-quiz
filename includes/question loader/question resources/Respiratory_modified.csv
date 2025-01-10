@@ -1,0 +1,595 @@
+type,difficulty,topic,question_stem,answer_options,correct_index,correct_text,explanation
+Clinical,Easy,"[""Respiratory"", ""Pulmonary Disease"", ""Asthma"", ""Infectious Disease""]","A 70-year retired female presents to her GP with a six-month history of daily cough productive of foul-smelling yellow sputum with occasional red-brown streaks. She is occasionally short of breath on exertion. She has noticed an increase in sputum and red discolouration in the past 2 weeks. She is feeling lethargic but has not noticed weight loss or night sweats. Her husband has recently been unwell with a cold. She has a background of rheumatoid arthritis, hypertension and high cholesterol. She is a non-smoker, non-drinker and has no recent overseas travel.
+
+Clinically, the most likely diagnosis is:","[""Lung cancer"", ""Asthma"", ""COPD"", ""Primary tuberculosis"", ""Bronchiectasis""]",E,Bronchiectasis,"Explanation: The chronic, daily purulent sputum is characteristic of bronchiectasis, which is commonly associated with a foul smell and streaks of blood (haemoptysis). The recent increase in symptoms suggests an infective exacerbation precipitating the current GP visit (possibly caught from the sick husband!). Rheumatoid arthritis is one of the potential conditions associated with bronchiectasis. Lung cancer is an important differential but is less likely in the absence of B symptoms and smoking. COPD is also less likely in someone who has never smoked and typically involves colourless sputum and morning cough. Tuberculosis is rare in Australia and the absence of risk factors (such as overseas travel) and B symptoms makes it very unlikely. Asthma can present in adults but the absence of a personal or family history of atopy, productive rather than dry cough and no evidence of symptom variability or triggers makes it unlikely.
+
+Resource: https://emedicine.medscape.com/article/296961-overview#a1"
+Clinical,Easy,"[""Respiratory""]","A GP performs spirometry on a 35 year old man with a 3 month history of episodic cough.
+
+This flow-volume loop is MOST likely to be associated with:
+
+
+http://www.clevelandclinicmeded.com/medicalpubs/diseasemanagement/pulmonary/pulmonary-function-testing/images/pulmonary-function-fig4_large.jpg","[""Alpha-1-antitrypsin deficiency"", ""Obesity"", ""Interstitial lung disease"", ""Kyphoscoliosis"", ""Myasthenia gravis""]",,Alpha-1-antitrypsin deficiency,"Image source: http://www.clevelandclinicmeded.com/medicalpubs/diseasemanagement/pulmonary/pulmonary-function-testing/images/pulmonary-function-fig4_large.jpg
+
+ 
+
+ Explanation: scalloping on the flow-volume loop is associated with obstructive lung disease. Alpha-1-antitrypsin deficiency causes emphysema, an obstructive disease. The patient’s young age may further increase suspicion of a heritable cause. Interstitial lung disease, kyphoscoliosis, obesity, and myasthenia gravis all produce restrictive disease.
+
+ 
+
+Resource: Paraskeva, Borg and Naughton, 2011 Spirometry Australian family physician Vol 40(4) https://www.racgp.org.au/afp/2011/april/spirometry/ , https://emedicine.medscape.com/article/301760-overview"
+Clinical,Easy,"[""Respiratory"", ""Pulmonary Disease"", ""Asthma""]","A 55 year old man presents with a 6 month history of productive cough and 2kg weight loss. He is an ex-smoker (24 pack years). On examination he has significant muscle wasting and is using accessory muscles for respiration. He has a hyper-resonant chest with quiet breath sounds bilaterally and no added sounds. The following are his spirometry results:
+
+ 
+
+Baseline
+
+Post- bronchodilator
+
+ 
+
+Predicted
+
+Actual
+
+%predicted
+
+Actual
+
+% change
+
+FEV1 (L)
+
+3.07
+
+0.63
+
+21%
+
+0.69
+
+10%
+
+FVC (L)
+
+3.75
+
+1.73
+
+46%
+
+1.92
+
+ 
+
+FEV1/FVC (%)
+
+82
+
+37
+
+45%
+
+37
+
+ 
+
+PEF
+
+801
+
+266
+
+33%
+
+249
+
+ 
+
+http://www.clevelandclinicmeded.com/medicalpubs/diseasemanagement/pulmonary/pulmonary-function-testing/images/pulmonary-function-fig4_large.jpg","[""The most likely diagnosis is:"", ""COPD"", ""Asthma"", ""Lung cancer"", ""Sarcoidosis"", ""Interstitial lung disease""]",B,COPD,"Image source: http://www.clevelandclinicmeded.com/medicalpubs/diseasemanagement/pulmonary/pulmonary-function-testing/images/pulmonary-function-fig4_large.jpg
+
+ 
+
+Explanation: The spirometry results showing FEV1/FVC <70% and scalloped flow volume loop are consistent with obstructive lung disease. Sarcoidosis and interstitial lung disease are therefore unlikely as they typically cause a restrictive pattern of lung disease. Asthma is typically confirmed by a significant response to bronchodilators (>12% or 200mL increase in FEV1), which is not the case for this patient. Although absence of bronchodilator response does not rule out asthma, it is much more commonly associated with COPD. The diagnosis of COPD is also supported by the patient’s history (heavy smoker, chronic cough) and examination findings. Muscle wasting and weight loss can occur because the patient is constantly working hard to breathe (using accessory muscles, particularly for expiration as the airways collapse making it difficult to breathe out air). Lung cancer is an important differential diagnosis in an ex-smoker with weight loss and new-onset cough. Although COPD is most likely with the given clinical picture and spirometry results, it may be worthwhile investigating and ruling out lung cancer. Lung cancer may co-exist with COPD in smokers.
+
+ 
+
+Resource: http://www.japi.org/february_2012_special_issue_copd/05_spirometry_in_chronic.pdf"
+Clinical,Hard,"[""Respiratory"", ""Pulmonary Disease""]",Which of the following is LEAST likely in a patient with severe COPD?,"[""Peripheral oedema and raised JVP due to right heart failure"", ""Hyper-resonant chest with quiet breath sounds due to hyperinflation"", ""Scattered expiratory wheeze due to airway obstruction"", ""Prolonged inspiration with pursed lips due to collapse of small airways"", ""Polycythaemia secondary to chronic hypoxaemia""]",,,"Explanation: Severe COPD is associated with prolonged expiration as small airway collapse due to damaged alveolar walls and loss of elastic recoil makes it difficult for the patient to breathe out. “Pursed lips” breathing assists with expiration by helping to keep the airways open. Polycythaemia and right heart failure are potential complications of COPD. Option b. and c. both represent possible findings in COPD patients (it is worthwhile seeing lots of COPD patients on the wards as they have a range of presentations!)
+
+ 
+
+Resource: https://emedicine.medscape.com/article/297664-overview"
+Clinical,Easy,"[""Respiratory"", ""Pulmonary Disease""]",Which of the following is indicated for long term maintenance therapy in COPD?,"[""Antibiotics"", ""Oral corticosteroids"", ""Salbutamol nebulisers"", ""LABA/LAMA combination inhaler"", ""Ipatropium inhaler""]",D,LABA/LAMA combination inhaler,"Your answer is correct.
+
+Explanation: this question assesses knowledge of the medication classes used in COPD and the difference in management of exacerbations vs long term therapy. Antibiotics, oral corticosteroids and salbutamol/ ipratropium nebulisers are typically used in exacerbations. Salbutamol (Short acting beta agonist) and ipratropium (short-acting antimuscarininc) inhalers may also be used day-to-day PRN for symptom relief. Long acting beta agonist/long acting antimuscarinics (LABA/LAMA) combination inhalers (eg: Spiolto, Anoro Ellipta) are now first line in long term maintenance therapy in COPD.
+Resource: https://emedicine.medscape.com/article/297664-overview"
+Clinical,Hard,"[""Respiratory"", ""Pulmonary Disease"", ""Infectious Disease""]","A 72 year-old man presents to ED with a history of worsening productive cough, dyspnoea and tiredness over 5 days. He has a background of COPD and hypertension. His regular medications are amlodipine, salbutamol, Spiolto (LABA/LAMA) and seretide. He presents confused with observations RR 24, O2 sats 85% on room air, HR 110, BP 90/60, temp 38.6deg.
+
+Which of the following is LEAST important in the acute management of this patient?","[""Administer salbutamol + ipratropium nebulisers"", ""Administer oral prednisolone"", ""Obtain a chest x-ray"", ""Give empirical antibiotics"", ""Administer oxygen therapy""]",B,Administer oral prednisolone,"Explanation: Salbutamol and ipratropium nebulisers, antibiotics, O2 therapy and steroids are important in the acute management of COPD. Obtaining a CXR is important in assessing for pneumonia when IV antibiotics are typically needed. Oral antibiotics and oral prednisolone would be suitable for a patient with a less severe infective exacerbation. At present this patient is probably sick enough to warrant IV hydrocortisone given his haemodynamic instability; he may be switched to oral prednisolone later for discharge.
+
+ 
+
+Resource: https://emedicine.medscape.com/article/297664-overview"
+Clinical,Medium,"[""Respiratory"", ""Pulmonary Disease""]","A 72 year old man presents to ED with a history of worsening productive cough, dyspnoea and tiredness over 5 days. He has a background of COPD and hypertension. His regular medications are amlodipine, salbutamol, Spiolto (LABA/LAMA) and seretide. He presents confused with observations RR 24, O2 sats 85% on room air, HR 110, BP 90/60, temp 38.6deg.
+
+Which of the following is the best method for initially administering oxygen therapy to this patient?","[""He should not be given O2 therapy due to the risk of type 2 respiratory failure"", ""Hudson mask"", ""Venturi mask"", ""BiPAP"", ""He should not be given O2 therapy as his O2 sats are within acceptable range for COPD patients""]",C,Venturi mask,"Explanation: The target O2 saturation for patients with COPD is 88-92%. Chronic CO2 retention in COPD patients can lead to loss of the CO2 drive for respiration; these patients may rely on low O2 to drive respiration instead. Giving them too much oxygen can reduce respiratory drive causing type II respiratory failure. Thus, it is important to know the precise FiO2 (fraction of inspired oxygen) delivered to COPD patients; this is usually kept at 24-28% to avoid excess oxygen delivery. With nasal prongs and Hudson mask it is not possible to accurately know the FiO2 delivered, and FiO2 will increase with increasing oxygen flow rates. A venturi mask allows a precise FiO2 to be delivered at a relatively high flow rate making it a good initial oxygen delivery method for COPD patients. BiPAP may be required in more severe cases or if the patient deteriorates.
+
+ 
+
+Resource: https://em3.org.uk/foamed/22/5/2017/lightning-learning-oxygen-delivery-devices"
+Clinical,Medium,"[""Respiratory"", ""Pulmonary Disease""]","A 72 year old woman presents with a 12 month history of exertional dyspnoea and cough productive of clear sputum. Her chest X-ray is given below.
+
+http://radiopaedia.org/images/266487  
+Which of the following features of COPD are NOT seen on this chest X-ray?","[""\"Small\" cardiac size"", ""Increased number of ribs within the lung fields"", ""Flattened hemidiaphragm"", ""Bullous changes"", ""Barrel chest""]",E,Barrel chest,"Image source: http://radiopaedia.org/images/266487 
+
+ 
+
+Explanation: barrel chest refers to increase in antero-posterior diameter of the chest wall associated with COPD- this can only be seen on a lateral CXR view.
+
+ 
+
+Resource: https://radiopaedia.org/articles/chronic-obstructive-pulmonary-disease-1"
+Clinical,Medium,"[""Respiratory"", ""Asthma""]","A 15 year old boy with a background of asthma presents to ED with sudden onset shortness of breath and wheeze that occurred during a soccer match. He has had limited response to his salbutamol puffer.
+
+Which of the following findings would suggest a severe asthma exacerbation?","[""Respiratory rate 24"", ""Bilateral expiratory wheeze on auscultation"", ""Hypocapnia on ABG"", ""O2 sats 95%"", ""Speaking in incomplete sentences""]",E,Speaking in incomplete sentences,"Explanation: Wheeze is a poor marker of the severity of an exacerbation. As patients make a greater breathing effort during an asthma attack, ventilation increases causing more CO2 to be blown off; the arterial blood gas therefore initially shows a respiratory alkalosis with low CO2; rising CO2 on serial blood gases is a concerning sign that the patient is tiring. O2 saturation <90-02% indicates severe asthma (guidelines vary). Respiratory rate is expected to be increased during an asthma attack; subtantial increase (>25-30, guidelines vary) can indicate severe asthma while a relatively low respiratory rate can occur eventually from exhaution. Inability to speak in full sentences due to dyspnoea is an important sign of a severe asthma attack.
+
+Resources:  http://www.asthmahandbook.org.au/acute-asthma/clinical/primary-assessment , https://lifeinthefastlane.com/ccc/acute-severe-asthma/"
+Clinical,Medium,"[""Respiratory"", ""Asthma""]","A 12-year-old girl is brought to ED with severe dyspnoea, chest-tightness and wheeze. She has a background of asthma and has been using Ventolin every 10-15 minutes since this morning. On presentation to ED she has a respiratory rate of 30 with oxygen saturations of 90% on room air.
+
+ Which of the following is the next most important aspect of management?","[""Oxygen therapy via Hudson mask"", ""Inhaled fluticasone/salmeterol"", ""Intubation and ventilation"", ""Obtaining a chest X-ray"", ""Obtaining an arterial blood gas""]",,,"Explanation: management of an asthma exacerbation should begin with ABC's and rapid assessment of severity (based on vital signs and clinical assessment prior to administration of bronchodilators).
+
+Oxygen aiming for saturation >92-94% is important, usually delivered via Hudson mask. Intubation and ventilation may be necessary if the patient begins to tire and respiratory effort becomes feeble.
+
+Salbutamol +/- ipratropium bromide are short-acting bronchodilators used in acute asthma exacerbations. Fluticasone/salmeterol is a combination ICS/LABA preventer and has no role in this acute setting.
+
+ABGs are useful in monitoring progress (initially respiratory alkalosis, rising CO2 with tiring and eventually metabolic lactic acidosis). However, stabilising the patient is the highest priority over ABGs which can be difficult to obtain and in children may precipitate worsened respiratory distress.
+
+Chest X-rays are not required routinely for acute asthma exacerbations unless very severe or used to rule out differential diagnoses.
+
+ 
+
+Resource:  https://lifeinthefastlane.com/ccc/acute-severe-asthma/ , https://www.rch.org.au/clinicalguide/guideline_index/Asthma_Acute/
+
+
+The correct answers are: Oxygen therapy via Hudson mask, Obtaining a chest X-ray"
+Clinical,Hard,"[""Respiratory"", ""Asthma""]","A 25 year old man is brought in by ambulance with an acute asthma attack. On arrival he is hypoxic and receiving high flow supplemental O2, and after back to back salbutamol nebulisers, he is speaking in short phrases only. The following are his serial arterial blood gas results:
+
+
+
+Time
+
+pO2
+
+pCO2
+
+pH
+
+8am (on arrival)
+
+80
+
+30
+
+7.5
+
+8.30am
+
+89
+
+39
+
+7.38
+
+9am
+
+100
+
+46
+
+7.34
+
+Ref range
+
+80-100mmHg
+
+35-45mmHg
+
+7.35-7.45
+
+
+
+What is the next best step in management?","[""The patient is improving. Cease salbutamol nebulisers and supplemental oxygen."", ""The patient is deteriorating. Call for senior help and prepare for intubation + ventilation."", ""The patient is being over oxygenated. Reduce the oxygen flow rate."", ""The patient is improving. Trial increased time between salbutamol nebulisers."", ""The patient is deteriorating. Call for senior help and increase oxygen flow rate.""]",B,The patient is deteriorating. Call for senior help and prepare for intubation + ventilation.,"Explanation: the most important thing to recognise here is that increasing pCO2 on serial blood gases represents deterioration in the setting of acute asthma. Therefore, answers a-c are incorrect. Rising pCO2 represents deteriorating ventilation as the patient becomes fatigued after breathing very hard for a long time. Therefore, this patient is at risk of ventilatory arrest. Senior help should be sought immediately, and preparation made for intubation and external ventilation (since the person can’t ventilate properly themselves!). Increasing oxygen flow rates will not help with ventilation, making answer e inappropriate. BiPAP is also often used for ventilatory support in acute asthma.
+
+Resources: https://lifeinthefastlane.com/ccc/acute-severe-asthma/ , https://lifeinthefastlane.com/investigations/acid-base/"
+Clinical,Easy,"[""Respiratory"", ""Pulmonary Disease"", ""Asthma""]","A 7-year-old girl with a history of cystic fibrosis and chronic productive cough is admitted to hospital for a course of IV antibiotics.
+
+The most likely pathology underlying her respiratory disease is:","[""Enlargement of the airspaces distal to terminal bronchioles accompanied by destruction of alveolar walls"", ""Persistent cough with sputum production for at least 3 months in at least 2 consecutive years"", ""Airway hyperresponsiveness and reversible airflow limitation with bronchial inflammation"", ""Permanent and abnormal dilatation of bronchi and bronchioles due to obstruction or infection"", ""Impairment of the lung\u2019s usual damage repair process, leading to scarring and thickening of the interstitium""]",D,Permanent and abnormal dilatation of bronchi and bronchioles due to obstruction or infection,"Explanation: Patients with cystic fibrosis develop bronchiectasis very early in life. Australian data shows that 50-70% of patients have CT evidence of bronchiectasis by 3-5 years old. Chronic productive cough is a common symptom. Patients often undergo “tune-ups” with courses of prophylactic IV antibiotics in hospital to eradicate colonised bacteria and reduce exacerbations.
+
+The other options represent:
+
+Asthma= Airway hyperresponsiveness and reversible airflow limitation with bronchial inflammation
+Bronchiectasis= Permanent and abnormal dilatation of bronchi and bronchioles due to obstruction or infection
+COPD=Enlargement of the airspaces distal to terminal bronchioles accompanied by destruction of alveolar walls
+Chornic bronchitis= Persistent cough with sputum production for at least 3 months in at least 2 consecutive years
+Interstitial lung disease=Impairment of the lung’s usual damage repair process, leading to scarring and thickening of the interstitium
+Resource: https://www.nejm.org/doi/full/10.1056/nejmoa1301725"
+Clinical,Medium,"[""Respiratory""]","A 15 year old male presents to the emergency department looking dehydrated and severely dyspnoeic with a GCS of 14. The following are his blood gas and urinalysis results:
+
+
+
+ABG
+
+Ref range
+
+Urinalysis
+
+pO2
+
+92
+
+80-100mmHg
+
+Ketones ++++
+
+Glucose ++++
+
+Leucs -ve
+
+Nitrites -ve
+
+Protein -ve
+
+Blood -ve
+
+ 
+
+pCO2
+
+22
+
+35-45mmHg
+
+pH
+
+7.1
+
+7.35-7.45
+
+HCO3
+
+7
+
+22-26mM
+
+Na
+
+135
+
+135-145
+
+K
+
+5.1
+
+3.5-5
+
+Cl
+
+104
+
+95-105
+
+Lactate
+
+7.7
+
+<1.9
+
+Glucose
+
+35
+
+<7.8
+
+ 
+
+What type of acidosis does the patient have?","[""Respiratory acidosis with partial metabolic compensation"", ""Respiratory acidosis without compensation"", ""Metabolic acidosis with partial respiratory compensation"", ""Metabolic acidosis without compensation"", ""Mixed metabolic and respiratory acidosis""]",C,Metabolic acidosis with partial respiratory compensation,"Explanation: pH <7.35 indicates acidaemia. Associated low bicarbonate (HCO3) indicates a metabolic cause (bicarbonate is basic so low levels will cause the blood to become acidotic). The lungs can compensate for this acidosis by blowing off more CO2; therefore, a low pCO2 indicates respiratory compensation is occurring.
+
+Resources: https://www.nps.org.au/australian-prescriber/articles/the-interpretation-of-arterial-blood-gases"
+Clinical,Easy,"[""Respiratory"", ""Asthma""]","A 15 year old male presents to the emergency department looking dehydrated and severely dyspnoeic with a GCS of 14. The following are his blood gas and urinalysis results:
+
+
+
+ABG
+
+Ref range
+
+Urinalysis
+
+pO2
+
+92
+
+80-100mmHg
+
+Ketones ++++
+
+Glucose ++++
+
+Leucs -ve
+
+Nitrites -ve
+
+Protein -ve
+
+Blood -ve
+
+ 
+
+pCO2
+
+22
+
+35-45mmHg
+
+pH
+
+7.1
+
+7.35-7.45
+
+HCO3
+
+7
+
+22-26mM
+
+Na
+
+135
+
+135-145
+
+K
+
+5.1
+
+3.5-5
+
+Cl
+
+104
+
+95-105
+
+Lactate
+
+7.7
+
+<1.9
+
+Glucose
+
+35
+
+<7.8
+
+
+
+Which of the following is the best possible explanation for this patient’s presentation?","[""Insulin overdose"", ""Diabetic ketoacidosis"", ""Starvation ketoacidosis"", ""Acute asthma attack"", ""Methanol poisoning""]",B,Diabetic ketoacidosis,"Explanation: Diabetic ketoacidosis (DKA) causes a high anion gap metabolic acidosis associated with elevated glucose and ketones in the urine + elevated blood glucose. It is associated with type 1 diabetes which usually presents in younger patients. Patients in DKA may present dyspnoeic (“Kussmaul breathing”) as they attempt to blow off CO2 as respiratory compensation for the metabolic acidosis. Common associated symptoms in DKA are dehydration, abdominal pain and vomiting. Dehydration can cause poor perfusion of tissues, some tissue/organ ischaemia and hence increased lactate.
+
+Methanol poisoning also causes a high anion gap metabolic acidosis, but the high glucose and high ketones do not fit well with this picture. Insulin overdose and starvation ketoacidosis would be associated with low blood glucose.  An acute asthma attack may initially present with respiratory alkalosis, with pCO2 rising and pH falling as the patient becomes fatigued and unable to ventilate.
+
+Resources: https://www.nps.org.au/australian-prescriber/articles/the-interpretation-of-arterial-blood-gases"
+Clinical,Medium,"[""Respiratory""]","A shocked patient presents to the Emergency department. The following are his ABG results:
+
+
+
+ABG
+
+Ref range
+
+pO2
+
+55
+
+80-100mmHg
+
+pCO2
+
+29
+
+35-45mmHg
+
+pH
+
+7.11
+
+7.35-7.45
+
+HCO3
+
+10
+
+22-26mM
+
+Na
+
+125
+
+135-145
+
+K
+
+6.6
+
+3.5-5
+
+Cl
+
+90
+
+95-105
+
+Lactate
+
+19.1
+
+<1.9
+
+Glucose
+
+5
+
+<7.8
+
+
+Which of the following represents the best initial approach for oxygen supplementation in this patient?","[""The patient is at risk of retaining CO2, so O2 sats should be maintained at 88-92%"", ""The patient should be commenced on 1L oxygen via nasal prongs"", ""High flow oxygen via non-rebreather mask should be trialled"", ""The patient requires urgent intubation and ventilation"", ""The patient does not require supplemental oxygen but should have sats monitored""]",C,High flow oxygen via non-rebreather mask should be trialled,"Explanation: this patient is severely hypoxaemic and therefore requires supplemental oxygen at a high flow rate urgently. 1L via nasal prongs is unlikely to be sufficient. A non-rebreather mask is capable of supplying higher flow rates and is readily available in the emergency department. There is no evidence that the patient is a CO2 retainer and presently his pCO2 is low; therefore, this is not of immediate concern. The patient may eventually require intubation and ventilation if oxygenation cannot be sufficiently improved with less invasive methods.
+
+Resource: http://www.partone.lifeinthefastlane.com/supplemental-oxygen.html"
+Clinical,Medium,"[""Respiratory""]","A shocked patient presents to the Emergency department. The following are his ABG results:
+
+
+
+ABG
+
+Ref range
+
+pO2
+
+55
+
+80-100mmHg
+
+pCO2
+
+29
+
+35-45mmHg
+
+pH
+
+7.11
+
+7.35-7.45
+
+HCO3
+
+10
+
+22-26mM
+
+Na
+
+125
+
+135-145
+
+K
+
+6.6
+
+3.5-5
+
+Cl
+
+90
+
+95-105
+
+Lactate
+
+19.1
+
+<1.9
+
+Glucose
+
+5
+
+<7.8
+
+
+
+Which of the following is accurate based on the ABG above?","[""There is a respiratory acidosis"", ""This patient has type 2 respiratory failure"", ""Respiratory compensation is sufficient for the acidosis"", ""The anion gap is normal"", ""An element of renal failure is likely""]",E,An element of renal failure is likely,"Explanation:
+
+Low Na+ and high K+ indicate that an element of renal failure may be occurring.
+
+This patient has type 1 respiratory failure which occurs when there is hypoxia without hypercapnia with an arterial pO2 < 60mmHg. Type 2 respiratory failure is hypoxia + hypercapnia.
+
+ A low pH indicates acidaemia and associated low bicarbonate indicates it is a metabolic acidosis, rather than respiratory acidosis.
+
+The anion gap is normally ~12. It is measured using the anion gap equation: [Na+] – ([Cl]-  + [HCO3-]) which represents the difference between the body’s cations (mostly accounted for by sodium) and measurable anions (chloride and bicarbonate); in this patient the anion gap is 125 – (90 +10)= 25, indicating an increased anion gap. The anion gap can help identify the cause of the acidosis as an increased anion gap metabolic acidosis is associated with different underlying causes compared to a normal anion gap metabolic acidosis (if you are more interested in this look up the mnemonic “MUDPILES” 😊 ).
+
+Respiratory compensation usually occurs with a metabolic acidosis whereby the patient hyperventilates to blow off CO2 causing pCO2 in the blood to fall and help counteract the acidaemia. Respiratory compensation is considered sufficient if the pCO2 is equal to the last 2 digits of the pH. In this case the pCO2 should fall to ~11 (as the pH is 7.11) but is far short of this at 25. Hence the patient is not sufficiently compensating.
+
+Resources: Respiratory compensation for metabolic acidosis: https://www.sciencedirect.com/topics/medicine-and-dentistry/respiratory-compensation , Type 1 respiratory failure: https://bestpractice.bmj.com/topics/en-us/853  https://lifeinthefastlane.com/investigations/acid-base/"
+Clinical,Easy,"[""Respiratory"", ""AMSA Pneumonia"", ""Infectious Disease""]","A 62-year-old man is brought to the Emergency department by his wife with a 2 day history of right sided chest pain, cough, fever and rigors. He is drowsy on arrival. His vital signs are: HR 130, BP 135/90, RR30, O2 88% on RA and temp 38.2. On examination he has crackles in the left base. He is a non-smoker and is normally fully functional at home.
+
+The most likely pathogen causing his illness is:","[""Streptococcus pyogenes"", ""Haemophilus influenzae"", ""Moraxella catarrhalis"", ""Staphylococcus aureus"", ""Streptococcus pneumoniae""]",E,Streptococcus pneumoniae,"Explanation: this patient’s presentation is consistent with community acquired pneumonia (chest symptoms, febrile, low O2 sats, tachypnoea). The commonest bacterial cause is streptococcus pneumoniae. Other causes of typical community acquired pneumonia are H influenzae and Moraxella catarrhalis. Streptococcus pyogenes is not usually associated with pneumonia. Staph aureus may cause pneumonia.
+
+Resource: https://emedicine.medscape.com/article/234240-overview#a1
+
+
+
+
+Click here or the image below to access the complete AMSA Pneumonia Fact Sheet"
+Clinical,Hard,"[""Respiratory""]","A 62-year-old man is brought to the Emergency department by his wife with a 2 day history of right sided chest pain, cough, fever and rigors. He is drowsy on arrival. His vital signs are: HR 130, BP 135/90, RR30, O2 88% on RA and temp 38.2. He has a background of hypertension, ischaemic heart disease and reflux, as well as a 20-pack year smoking history.
+
+Which of the following is the LEAST helpful investigation in this patient?","[""Sputum culture\n\n\nb.\nFull blood count\n\n\nc.\nUrea, electrolytes and creatinine\n\n\nd.\nChest X-ray\n\n\ne.\nBlood gases""]",,Sputum culture,"Explanation: Sputum microscopy, culture and sensitivity is low yield as it is difficult to obtain a good sample, a range of commensals/contaminants are often grown, and it take a few days for a result to come back. Therefore, sputum is rarely helpful in identifying the causative organism. Chest x-ray is the most important investigation in confirming diagnosis. Blood gases are helpful to quickly identify the presence of respiratory failure. PaO2 and pH obtained from the blood gas, as well as urea levels form part of severity scoring systems such as SMART-COP and CURB-65. These scoring systems are useful for assessing prognosis and the need for hospital or ICU admission.  Full blood count identifies white cell count and neutrophilia which can be monitored over time to assess improvement.
+
+Resource: Sputum culture: https://www.medscape.org/viewarticle/489217 , https://bestpractice.bmj.com/topics/en-us/17"
+Clinical,Easy,"[""Respiratory"", ""Infectious Disease""]","A 75-year-old man is admitted to hospital with community-acquired pneumonia. Despite receiving IV antibiotics, the patient has not improved in 3 days. He continues to be febrile with rigors, is requiring supplemental oxygen and his drowsiness is worsening. On examination he has reduced air entry at the right base with dullness to percussion. His CXR shows the following
+
+Source: Case courtesy of A.Prof Frank Gaillard, <a href=""https://radiopaedia.org/"">Radiopaedia.org</a>. From the case <a href=""https://radiopaedia.org/cases/15389"">rID: 15389</a>
+Based on this imaging, what is the MOST LIKELY explanation for this patient’s failure to respond to antibiotics?","[""The patient has right lower lobe collapse"", ""An empyema has developed"", ""The pneumonia is viral"", ""The patient has an underlying lung malignancy"", ""The pneumonia is fungal""]",B,An empyema has developed,"Image source: Case courtesy of A.Prof Frank Gaillard, <a href=""https://radiopaedia.org/"">Radiopaedia.org</a>. From the case <a href=""https://radiopaedia.org/cases/15389"">rID: 15389</a>
+
+ 
+
+Explanation: Empyema is a complication of pneumonia (usually bacterial pneumonia) and is defined as pus in the pleural space. It is an exudative pleural effusion as can be seen on the above X-rays where the right hemidiaphragm is raised and costophrenic angle is lost. Antibiotics alone are usually insufficient to manage this, and drainage is required. This explanation is more likely than fungal or viral pneumonia. There is no indication at this stage that the patient has malignancy, although 40 pack year smoking history is a risk factor and malignancy can cause pleural effusions. The right lower lobe has likely collapsed but this alone would not explain ongoing fevers, rigors and drowsiness.
+
+Resource: https://radiopaedia.org/cases/pleural-empyema, https://emedicine.medscape.com/article/807499-clinical#b4"
+Clinical,Medium,"[""Respiratory"", ""Infectious Disease""]","A 75-year-old woman is admitted to ICU with severe pneumonia.  Chest x-ray shows she has developed a pleural effusion and a diagnostic tap is performed.
+
+Which of the following lab findings would be MOST consistent with the effusion being an empyema?","[""Pleural LDH 50U/L, serum LDH 120U/L"", ""Pleural protein 30g/L, serum protein 70g/L"", ""Pleural protein 40g/L, serum protein 60g/L"", ""Pleural protein 30g/L, serum protein 60g/L"", ""Pleural LDH 60U/L, serum LDH 120U/L""]",C,"Pleural protein 40g/L, serum protein 60g/L","Explanation: An empyema is an exudative effusion. This question relates to Light’s criteria for differentiating exudative from transudative pleural effusions. An exudate is highly likely if any one of the criteria is present:
+
+-          Pleural to serum protein ratio >0.5
+
+-          Pleural to serum LDH ratio >0.6
+
+-          Pleural fluid >2/3 upper normal limit of serum LDH
+
+The pleural to serum protein ratio in b) is 40/60= 0.66 which meets the first of Light’s criteria. Calculating the ratios in a) 0.5 c) 0.42, d)0.42 and e)0.5 do not meet any of the criteria.
+
+Resource: https://www.mdcalc.com/lights-criteria-exudative-effusions"
+Clinical,Easy,"[""Respiratory"", ""Shortness of Breath"", ""Vascular Disease""]","You are an intern on the orthopaedic ward looking after a 72 year old lady who is day 5 post right total hip replacement. She had a post-op wound infection and limited mobility since the surgery. You are called to see her as she has become acutely short of breath with pleuritic chest pain. Her vital signs are RR18, O2 96% on RA, HR96, BP 120/70, temp 36.8deg. On examination you observe that her entire right leg is swollen and tender to palpation.
+
+The most useful diagnostic investigation in this patient is:","[""CT pulmonary angiogram"", ""VQ scan"", ""ECG"", ""D-dimer"", ""Bedside echocardiogram""]",,CT pulmonary angiogram,"Explanation: This patient has clinical evidence of a pulmonary embolism (pleuritic chest pain, SOB, evidence of deep vein thrombosis with tender swollen leg). Recent surgery is a major risk factor for PE, particularly hip/knee replacements and major abdo/pelvic surgery. The Wells score may be used to clinically assess the risk of PE. The best diagnostic investigation in a hemodynamically stable patient with a high risk of PE is a CT pulmonary angiogram. VQ scan may be used if CTPA is contraindicated (eg: in pregnancy, contrast allergy). Bedside echocardiogram is used for diagnosis in hemodynamically unstable patients who are too unwell to move for imaging; Echo may also be used in addition to CTPA or VQ scan to assess the impact of the PE on right ventricular function . An ECG should be obtained as part of the work up as it will help assess for differential diagnoses or show non-specific signs of PE ( such as sinus tachycardia, right ventricular strain). D-dimer is generally done only in patients with low clinical risk of PE; a negative D-dimer rules out PE in low risk patients.
+
+Resource: https://lifeinthefastlane.com/ccc/pulmonary-embolism/
+
+
+Click here or the image below to access the complete Shortness of Breath Fact Sheet"
+Clinical,Easy,"[""Respiratory""]","You are an intern on the orthopaedic ward looking after a 72 year old lady who is day 5 post right total hip replacement. She had a post-op wound infection and limited mobility since the surgery. You are called to see her as she has become acutely short of breath with pleuritic chest pain. Her vital signs are RR18, O2 96% on RA, HR96, BP 120/70, temp 36.8deg. On examination you observe that her entire right leg is swollen and tender to palpation.
+
+An ECG is obtained and handed to you:
+
+https://i0.wp.com/lifeinthefastlane.com/wp-content/uploads/2011/12/sinus-tachycardia.jpg?ssl=1","[""Sinus tachycardia"", ""Right axis deviation"", ""Ventricular tachycardia"", ""Right bundle branch block"", ""Normal ECG""]",,Sinus tachycardia,"Explanation: The heart rate on a standard ECG with paper speed 25mm/sec can be calculated as follows: 300 divided by number of large squares between QRS complexes or total number of QRS complexes on the rhythm strip x 6. In this case the heart rate is approximately 300/2= 150bpm or 26 x 6 = 156. Therefore,  the patient is tachycardic (HR>100). As a P wave is present before every QRS complex, this is a sinus tachycardia. Sinus tachycardia is the commonest ECG finding in PE.  Ventricular tachycardia is associated with broad QRS complexes (greater than 120mm or 3 small squares). Right axis deviation, right bundle branch block and right ventricular strain are other possible ECG abnormalities seen in PE. There are no QRS complex abnormalities in the right precordial leads V1-3 suggestive of right bundle branch block. Leads I and II are positive indicating a normal axis.
+
+Resource: https://lifeinthefastlane.com/ecg-library/pulmonary-embolism/"
+Clinical,Medium,"[""Respiratory"", ""Infectious Disease"", ""Vascular Disease"", ""Pulmonary Disease""]","Recognised causes of bronchiectasis include all of the following, EXCEPT","[""Primary ciliary dyskinesia"", ""Pulmonary embolism"", ""Inhaled foreign body"", ""Primary tuberculosis"", ""Suppurative pneumonia""]",B,Pulmonary embolism,"Explanation. The causes of bronchiectasis can be broadly characterised into obstruction of the airways (such as by a foreign body or tumour), infection (such as tuberculosis, pneumonia, whooping cough or measles) and congenital causes (such as primary ciliary dyskinesia and cystic fibrosis). Pulmonary embolism is a disease of the pulmonary vasculature rather than airways; it involves blockage of pulmonary vessels by a clot usually dislodged from deep vein thrombosis.
+
+Resource: https://emedicine.medscape.com/article/296961-overview#a1"
+Clinical,Medium,"[""Respiratory"", ""Vascular Disease""]","A 56-year-old man presents with pleuritic chest pain and dyspnoea following a 13-hour flight from the USA. Investigations confirm a segmental pulmonary embolism without right ventricular strain and cardiac troponin is negative. The patient continues to be hemodynamically stable.
+
+Of the following, the most appropriate management for this patient is:","[""Embolectomy"", ""Thrombolysis"", ""Clopidogrel"", ""Aspirin"", ""Rivaroxaban""]",E,Rivaroxaban,"Explanation: Acute management in the hemodynamically stable patient with confirmed PE is anticoagulation. Heparin may be used initially (as it acts quickly), but most patients are just started immediately on long term therapy with a directly acting oral anticoagulant (such as rivaroxaban) or warfarin (if DOAC is contraindicated).
+
+In patients with massive PE (sBP<90mmHg or obstructive shock) thrombolysis is recommended; if thrombolysis fails or is contraindicated then embolectomy may be done. Aspirin is not used in the management of PE.
+
+Resource: https://lifeinthefastlane.com/ccc/pulmonary-embolism/"
+Clinical,Easy,"[""Respiratory"", ""Vascular Disease""]","You are a resident working on a general medical ward when a MET call is raised for one of your patients, an 80-year-old gentleman admitted after a fall with a background of metastatic renal cell cancer and previous DVT. On arrival to his room, a nurse tells you that the patient complained of severe dyspnoea and now has RR 28, HR 110, O2 sats 88%, BP 85/60, temp 36.8deg. Supplemental oxygen is commenced, and preparation made to give IV fluids as the MET team arrives. ECG shows a right ventricular strain pattern.
+
+Which of the following is the most likely diagnosis?","[""Massive pulmonary embolism"", ""Posterior STEMI"", ""Inferior STEMI"", ""Septic shock"", ""Sub-massive pulmonary embolism""]",,Massive pulmonary embolism,"Explanation: This patient has significant risk factors for pulmonary embolism including metastatic renal cell cancer and previous DVT, giving him a high risk Wells score. Dyspnoea and haemodynamic instability is a possible presentation of PE, and 34% of patients have a right ventricular strain pattern on ECG (T wave inversion in V1-4 +/- inferior leads I,II and avF). In massive PE there is haemodynamic instability associated with a significant blockage in the pulmonary circulation; massive PE is defined as PE with sBP <90mmHg or obstructive shock (this patient’s sBP is 85, so he meets this definition). Sub-massive PE is defined as acute pulmonary embolus without systemic hypotension but with either right ventricular dysfunction or myocardial necrosis. Inferior MI (often associated with hypotension) is a possibility but ECG findings are not consistent. The ECG did not show ST elevation, so STEMI is not likely. There is no evidence of infection from the information given making septic shock unlikely.
+
+Resource: Life in the fast lane https://lifeinthefastlane.com/ecg-library/pulmonary-embolism/, https://lifeinthefastlane.com/ccc/pulmonary-embolism/"

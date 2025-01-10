@@ -40,6 +40,9 @@ class Nqb_quiz_Admin {
 	 */
 	private $version;
 
+	private $question_loader;
+	// a link to the main question loader
+
 	/**
 	 * Initialize the class and set its properties.
 	 *
@@ -51,6 +54,8 @@ class Nqb_quiz_Admin {
 
 		$this->plugin_name = $plugin_name;
 		$this->version = $version;
+
+		add_action('admin_init', array($this, 'ajax_init'));
 
 	}
 
@@ -96,12 +101,17 @@ class Nqb_quiz_Admin {
 		 * class.
 		 */
 
-		wp_enqueue_script( $this->plugin_name, plugin_dir_url( __FILE__ ) . 'js/nqb_quiz-admin.js', array( 'jquery' ), $this->version, false );
-		// Localize script for AJAX call
-		wp_localize_script( $this->plugin_name, 'nqb_quiz_ajax_object', array( 
-			'ajax_url' => admin_url( 'admin-ajax.php' ),
-			'nonce'    => wp_create_nonce( 'nqb_quiz_nonce' )
-		) );
+		 wp_enqueue_script($this->plugin_name, plugin_dir_url(__FILE__) . 'js/nqb_quiz-admin.js', array('jquery'), $this->version, false);
+    
+		 $ajax_object = array(
+			 'ajax_url' => admin_url('admin-ajax.php'),
+			 'nonce' => wp_create_nonce('nqb_quiz_nonce')
+		 );
+		 
+		 error_log('Localizing script with: ' . print_r($ajax_object, true));
+		 
+		 wp_localize_script($this->plugin_name, 'nqb_quiz_ajax_object', $ajax_object);
+	 
 	}
 
 	/**
@@ -111,8 +121,8 @@ class Nqb_quiz_Admin {
 	 */
 	public function add_admin_menu() {
 		add_menu_page(
-			'Load CSVs',                // Page title
-			'Load CSVs',                // Menu title
+			'NQB quiz extra settings',                // Page title
+			'NQB quiz extra settings',                // Menu title
 			'manage_options',           // Capability
 			'nqb_quiz_load_csv',        // Menu slug
 			array( $this, 'display_page' ),  // Function to display the page content
@@ -127,28 +137,44 @@ class Nqb_quiz_Admin {
 	 * @since    1.0.0
 	 */
 	public function display_page() {
+		
 		?>
 		<div class="wrap">
-			<h1>Load CSVs</h1>
-			<button id="load-csvs" class="button button-primary">Load CSVs</button>
-			<p id="csv-loader-result"></p>
-		</div>
+        <h1>Load CSVs</h1>
+        <button id="load-csvs" class="button button-primary">Load CSVs</button>
+        <p id="csv-loader-result"></p>
+        
+        <hr style="margin: 30px 0;">
+        <h2>Danger Zone</h2>
+        <div style="background: #fff; padding: 20px; border-left: 4px solid #dc3545;">
+            <h3 style="color: #dc3545;">Delete All Questions</h3>
+            <p>Warning: This action cannot be undone. All questions will be permanently deleted.</p>
+            <button id="delete-all-questions" class="button button-danger" style="background: #dc3545; color: white; border-color: #dc3545;">Delete All Questions</button>
+            <p id="delete-questions-result"></p>
+        </div>
+    </div>
+		
 		<?php
 	}
 
 	/**
-	 * Handle the AJAX request for running the question loader.
+	 * H	ndle the AJAX request for running the question loader.
 	 *
 	 * @since    1.0.0
 	 */
 	public function load_csvs() {
 		check_ajax_referer( 'nqb_quiz_nonce', 'security' );
 
+
 		require_once dirname( plugin_dir_path( __FILE__ ) ) . '/includes/question loader/class-nqb_quiz-question_loader.php';
 		error_log("run question loader called from admin");
 		// Call the function from the class
-		$question_loader = new Nqb_Quiz_Question_Loader();
-		$result = $question_loader->run_question_loader();
+		if ($this->question_loader == null){
+			$question_loader = new Nqb_Quiz_Question_Loader();
+			$this->question_loader = $question_loader;
+		}
+		
+		$result = $this->question_loader->run_question_loader();
 
 		// Return a response
 		if ( $result ) {
@@ -159,12 +185,45 @@ class Nqb_quiz_Admin {
 	}
 
 	/**
+     * deletes all the questions of type sfwd question. useful for debugging.
+     */
+    public function delete_all_questions() {
+		error_log("start deleting all questions");
+        check_ajax_referer('nqb_quiz_nonce', 'security');
+        $args = array(
+            'post_type' => 'sfwd-question',
+            'posts_per_page' => -1,
+            'post_status' => 'any'
+        );
+    
+        $questions = get_posts($args);
+        $deleted_count = 0;
+    
+        foreach ($questions as $question) {
+            if (wp_delete_post($question->ID, true)) {
+                $deleted_count++;
+            }
+        }
+    
+        if ($deleted_count > 0) {
+            wp_send_json_success("Successfully deleted {$deleted_count} questions!");
+        } else {
+            wp_send_json_error('No questions were found to delete.');
+        }
+    }
+
+
+
+	/**
 	 * Initialize AJAX actions.
 	 *
 	 * @since 1.0.0
 	 */
 	public function ajax_init() {
+
 		add_action( 'wp_ajax_load_csvs', array( $this, 'load_csvs' ) );
+		add_action('wp_ajax_delete_all_questions', array($this, 'delete_all_questions'));
+		
 	}
 
 }

@@ -77,6 +77,10 @@ class Nqb_quiz_Question_Loader {
         return $this->csv_loader->get_questions();
     }
 
+    
+    
+    
+
 }
 
 class AnswerOption { //protected
@@ -95,7 +99,7 @@ class Question {
     public $stem;
     public $answerOptions = [];
     public $explanation;
-    public $system;
+    public $system = [];
 
     public function __construct($type, $difficulty, $stem, $explanation, $system) {
         $this->type = $type;
@@ -138,7 +142,7 @@ class Question {
         error_log("Question:");
         error_log("Type: " . $this->type);
         error_log("Difficulty: " . $this->difficulty);
-        error_log("System: " .  $this->system);
+        error_log("System: " .  print_r($this->system,true));
         error_log("Stem: " . $this->truncate($this->stem));
         error_log("Explanation: " . $this->truncate($this->explanation));
 
@@ -160,7 +164,8 @@ class Question {
             error_log("No correct answer set.");
         }
 
-        error_log("System: " . $this->truncate($this->system));
+        error_log("System: " . print_r($this->system,true));
+        // error_log("System: " . $this->truncate($this->system));
         error_log("-------------------------------------------");
     }
 }

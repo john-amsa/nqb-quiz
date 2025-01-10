@@ -88,12 +88,14 @@ class Nqb_quiz_Csv_Loader {
      */
     private function create_question_from_row($row, $system) {
         // Columns: Question No.,Preclinical / Clinical,Difficulty Level,Question Stem,Answer Options,Explanation
-        $type = $row[1];  // Preclinical / Clinical
-        $difficulty = $row[2];  // Difficulty Level
+        $type = $row[0];  // Clinical/Preclinical
+        $difficulty = $row[1];  // Difficulty Level
+        $system = json_decode($row[2], true);  // Parse JSON array of topics
         $stem = $row[3];  // Question Stem
-        $answer_options_str = $row[4];  // Answer Options (formatted as you provided)
-        $explanation = $row[5];  // Explanation
-        $system = $system;  
+        $answer_options = json_decode($row[4], true);  // Parse JSON array of answer options
+        $correct_index = $row[5];  // Index of correct answer (A-E)
+        $correct_text = $row[6];  // Text of correct answer
+        $explanation = $row[7];  // Explanation
 
         // Check if the stem is empty, skip the question if it is
         if (empty(trim($stem))) {
@@ -103,14 +105,42 @@ class Nqb_quiz_Csv_Loader {
         // Create the Question object
         $question = new Question($type, $difficulty, $stem, $explanation, $system);
 
-        // Extract the correct answer from the explanation
-        $correct_answer = $this->extract_correct_answer_from_explanation($explanation);
-
-        // Parse the answer options and add them to the Question object
-        $parsed_options = $this->parse_answers($answer_options_str, $correct_answer);
-        foreach ($parsed_options as $option) {
-            $question->addAnswerOption($option['optionText'], $option['isCorrect']);
+        // Add answer options if they were successfully parsed
+        if ($answer_options !== null) {
+            $correct_answer_found = false;
+            
+            foreach ($answer_options as $index => $option_text) {
+                // Convert numeric index to letter (0 -> A, 1 -> B, etc.)
+                $option_letter = chr(65 + $index);  // 65 is ASCII for 'A'
+                
+                // Check if this option matches both the correct index and text
+                $matches_index = ($option_letter === $correct_index);
+                $matches_text = (trim($option_text) === trim($correct_text));
+                
+                // Log an error if there's a mismatch between index and text
+                if ($matches_index !== $matches_text) {
+                    error_log("Warning: Mismatch in correct answer for question '{$stem}'. " .
+                            "Index indicates option {$correct_index} but correct text matches option " .
+                            ($matches_text ? $option_letter : "none"));
+                }
+                
+                // Only mark as correct if both index and text match
+                $isCorrect = $matches_index && $matches_text;
+                
+                if ($isCorrect) {
+                    $correct_answer_found = true;
+                }
+                
+                $question->addAnswerOption($option_text, $isCorrect);
+            }
+            
+            // Log an error if no answer option matched the correct text
+            if (!$correct_answer_found) {
+                error_log("Error: No matching correct answer found for question '{$stem}'. " .
+                        "Correct text: '{$correct_text}', Index: '{$correct_index}'");
+            }
         }
+      
 
         // Log the question creation
         // error_log("Created Question: " . $question->stem);

@@ -1,0 +1,220 @@
+type,difficulty,topic,question_stem,answer_options,correct_index,correct_text,explanation
+Clinical,Medium,"[""Cardiology"", ""Ischaemic Heart Disease""]","A 55-year-old male presents with 1 day history of central, crushing chest pain, radiating to his left arm at rest. He has been experiencing chest pain intermittently over the past 6 months. Serial cardiac troponins and ECG revealed no abnormalities. What is the next best step in his management?","[""Repeat troponins"", ""GTN s/l only"", ""Discharge with lifestyle advice"", ""Aspirin 300mg + GTN s/l"", ""Aspirin 100mg + GTN s/l""]",D,Aspirin 300mg + GTN s/l,"This man is likely suffering from unstable angina which is on the spectrum of acute coronary syndrome. Unstable angina presents without a rise in troponins due to absence of myocardial infarct but often indicates impending infarction. Thus treatment is the same as for a STEMI or NSTEMI.
+
+Click here or the image below to access the complete Ischaemic Heart Disease Fact Sheet
+
+
+
+Description not necessary"
+Clinical,Hard,"[""Cardiology"", ""Ischaemic Heart Disease""]","A 56-year-old male truck driver was diagnosed with a STEMI 2 weeks ago. His discharge medications included aspirin, clopidogrel, ramipril, metoprolol and atorvastatin. He has been well since discharge, however now presents with pleuritic chest pain, dyspnoea and fever. Vitals revealed HR 100bpm, RR 20, O2 sats 97%, T 38.6˚C. Troponins were normal and ECG showed Q waves and T wave inversion in leads II, III and aVF. CXR revealed a pleural effusion. What is the next best step in his management?","[""Antibiotics"", ""BNP"", ""PCI"", ""Heparin"", ""NSAIDs""]",E,NSAIDs,"This man is suffering from Dressler syndrome which is a late complication of MI. Dressler syndrome is classified by fever, pericarditis, pleural and pericardial effusions and joint pain. Management is with NSAIDs acutely and colchicine for prevention of recurrences. Pneumonia and PE are unlikely due to his relatively normal O2 sats. Heart failure is possible but Dressler syndrome is the most likely diagnosis in the presence of pleuritic chest pain. Recurrent ischaemia is unlikely due to the normal troponins and lack of specific ECG changes.
+
+Source: https://www.msdmanuals.com/professional/cardiovascular-disorders/coronary-artery-disease/complications-of-acute-coronary-syndromes 
+Click here or the image below to access the complete Ischaemic Heart Disease Fact Sheet 
+
+Description not necessary"
+Clinical,Easy,"[""Cardiology"", ""Ischaemic Heart Disease""]","A 56-year-old male truck driver was diagnosed with a STEMI 2 weeks ago. His discharge medications included aspirin, clopidogrel, ramipril, metoprolol and atorvastatin. He has been well since discharge and is wondering about when he can get back to work. What is the best advice that should be given?","[""Able to return to work immediately"", ""Return to work after 2 weeks if no anginal symptoms"", ""Return to work after 4 weeks if no anginal symptoms"", ""Return to work after 6 months if no anginal symptoms"", ""Require a driving test before returning to work""]",C,Return to work after 4 weeks if no anginal symptoms,"The recommendations for driving after an AMI are ≥2 weeks for private vehicle drivers and ≥4 weeks for commercial vehicle drivers. A driving test is not required but an assessment by a medical practitioner is needed, taking into account the response to treatment and symptoms.
+
+Source: http://www.austroads.com.au/drivers-vehicles/assessing-fitness-to-drive
+Click here or the image below to access the complete Ischaemic Heart Disease Fact Sheet"
+Clinical,Medium,"[""Cardiology"", ""Ischaemic Heart Disease""]","A 65-year-old male presents for a regular checkup at his GP. He has a past medical history of type 2 diabetes mellitus, hypertension and hypercholesterolaemia. He has been otherwise well. An ECG stress test was done given his high risk for ischaemic heart disease. Which of the following are not diagnostic of an acute myocardial infarct?","[""ST elevation"", ""ST depression"", ""Pathological Q waves"", ""Hyperacute T waves"", ""T waves inversion""]",D,Hyperacute T waves,"The diagnosis of a myocardial infarction requires:
+
+Elevated cardiac enzymes AND
+
+One of the following:
+
+Typical symptoms
+
+ST elevation or depression
+
+Pathological Q waves
+
+Coronary intervention has been performed eg. stent placement
+
+Hyperacute T waves are indicative of ischaemia but not infarction.
+
+Source: https://en.ecgpedia.org/wiki/Myocardial_Infarction#Development_of_the_ECG_during_persistent_ischemia
+
+Click here or the image below to access the complete Ischaemic Heart Disease Fact Sheet"
+Clinical,Easy,"[""Cardiology"", ""Ischaemic Heart Disease""]","A 70-year-old female presents with acute dyspnoea and coughing up pink, frothy sputum. She recently had an acute asthma attack which was treated with nebulised salbutamol and oral prednisolone. Other medical history includes a pacemaker for complete heart block, hypertension and hypercholesterolaemia. On examination she is tachycardic, tachypnoeic, BP is 137/90, O2 sats are 87% and she is afebrile. What does her chest x-ray show?","[""Acute lobar pneumonia"", ""Acute asthma"", ""Acute pulmonary oedema"", ""Tension pneumothorax"", ""Multiple rib fractures and associated pneumothorax""]",C,Acute pulmonary oedema,"She is suffering from acute pulmonary oedema characterised by the pink, frothy sputum and most likely triggered by the prednisolone. Chest x-ray findings of acute pulmonary oedema can be remembered by the mnemonic ABCDE for alveolar oedema, kerley B lines and bats wing hilar shadowing, cardiomegaly, diversion of upper lobes, effusions. Lobar pneumonia is a possibility but unlikely given the bilateral batswing opacification and lack of fever. An acute asthma attack is unlikely given the chest x-ray changes. There are no signs of a tension pneumothorax or rib fractures.
+
+Source: http://www.oxfordmedicaleducation.com/cardiology/acute-pulmonary-oedema/
+
+Click here or the image below to access the complete Ischaemic Heart Disease Fact Sheet"
+Clinical,Easy,"[""Cardiology""]","A 70-year-old female presents with acute dyspnoea and coughing up pink, frothy sputum. She recently had an acute asthma attack which was treated with nebulised salbutamol and oral prednisolone. Other medical history includes a pacemaker for complete heart block, hypertension and hypercholesterolaemia. On examination she is tachycardic, tachypnoeic, BP is 137/90, O2 sats are 87% and she is afebrile. What features would least likely be present on CXR?","[""Alveolar shadowing"", ""Kerley B lines"", ""Cardiomegaly"", ""Prominent upper lobes"", ""Absent peripheral lung markings""]",,Absent peripheral lung marking,"She is suffering from acute pulmonary oedema characterised by the pink, frothy sputum and most likely triggered by the prednisolone. Chest x-ray findings of acute pulmonary oedema can be remembered by the mnemonic ABCDE for alveolar oedema, kerley B lines and bats wing hilar shadowing, cardiomegaly, diversion of upper lobes, effusions. Absent peripheral lung markings are characteristic of a pneumothorax.
+
+Source: http://www.oxfordmedicaleducation.com/cardiology/acute-pulmonary-oedema/"
+Clinical,Hard,"[""Cardiology""]","A 55-year-old male with recently diagnosed atrial fibrillation was recently started on an antiarrhythmic. He presents today with weight loss, anxiety and diarrhoea. Which of the following drugs was he most likely started on.","[""Digoxin"", ""Adenosine"", ""Amiodarone"", ""Atropine"", ""Metoprolol""]",C,Amiodarone,"This man most likely has amiodarone thyrotoxicosis. Amiodarone has a number of side effects such as thyroid dysfunction, ocular effects from corneal microdeposits, pulmonary toxicity and precipitation of new arrhythmias. Thyrotoxicosis can appear months even after cessation of amiodarone.
+
+Source: https://amhonline.amh.net.au/chapters/cardiovascular-drugs/drugs-arrhythmias/antiarrhythmics/amiodarone#amiodarone-adverse"
+Clinical,Medium,"[""Cardiology""]","A 50-year-old female presents for a routine surveillance of an abdominal aortic aneurysm. He is asymptomatic and otherwise well. Past medical history is significant for type 2 diabetes mellitus, hypertension and hyperlipidaemia. What is the best mode of surveillance for an aortic aneurysm?","[""Chest x-ray"", ""Abdominal x-ray"", ""Abdominal ultrasound"", ""Computer tomography angiography"", ""Magnetic resonance angiography""]",C,Abdominal ultrasound,"USS is the modality of choice due to its cost effectiveness, lack of radiation and widespread availability. CTA is used when considering surgical repair and no appropriate for routine surveillance due to the need for radiation exposure. MRA has no role in surveillance due to its cost and longer duration to administer and is used during repair for stent placement. CXR and AXR are not routinely used in the investigation of AAA.
+
+Source: https://www.racgp.org.au/afp/2013/june/aortic-aneurysms/"
+Clinical,Hard,"[""Cardiology""]","A 50-year-old female presents for a routine surveillance of an abdominal aortic aneurysm. He is asymptomatic and otherwise well. Past medical history is significant for type 2 diabetes mellitus, hypertension and hyperlipidaemia. Which of the following is an indication for aneurysm repair?","[""Aneurysm surveillance >5 years"", ""Aneurysm diameter >4.5 cm"", ""Aneurysm growth >10mm/ year"", ""Comorbid HTN"", ""All aneurysms are an emergency and require immediate treatment""]",C,Aneurysm growth >10mm/ year,"The following are indications for aneurysm repair:
+
+Male with aneurysm >5.5cm
+
+Female with aneurysm >5cm
+
+Growth >1cm/ year
+
+Symptomatic eg. back pain, distal embolisation
+
+Aneurysms not meeting this criteria can be monitored indefinitely as there is no
+
+significant survival benefit due to low risk of rupture.
+
+Source: https://www.racgp.org.au/afp/2013/june/aortic-aneurysms/"
+Clinical,Medium,"[""Cardiology"", ""Ischaemic Heart Disease""]","A 75-year-old male presents with sudden onset of palpitations, dizziness and dyspnoea. He is extremely anxious and fears that he might be having a heart attack. He had a previous acute myocardial infarct 6 months ago requiring coronary artery bypass surgery and has a background of hypertension and gastro-oesophageal reflux disease. On examination he has a BMI of 31, is sitting upright and is clammy and sweaty. T 37.1˚C, HR 155 bpm and BP 135/90. His ECG is shown below. What is the single most appropriate management?","[""Amiodarone"", ""Metoprolol"", ""Atropine"", ""DC cardioversion"", ""Adrenaline""]",A,Amiodarone,"This man is in VT. Guidelines state that DC cardioversion should be attempted if the patient is in cardiovascular shock. This man is still maintaining his BP and not in shock so 1st line would be amiodarone 300mg bolus followed by a 900mg infusion over the next 24h. However, given his tachycardia, it is reasonable to be already thinking of emergent cardioversion. 
+
+Source: https://lifeinthefastlane.com/ecg-library/ventricular-tachycardia/
+
+Click here or the image below to access the complete Ischaemic Heart Disease Fact Sheet"
+Clinical,Easy,"[""Cardiology""]","A 60-year-old female presents to the emergency department, pale and complaining of dizziness, with a systolic BP of 80 mmHg. She describes noticing a sudden onset of rapid heartbeat about 4 hours ago. She has had one previous episode of atrial fibrillation and her medications include metoprolol, rivaroxaban and atorvastatin. ECG shows an ongoing irregularly irregular rhythm with absent P waves. What is the next best step in her management?","[""Switch rivaroxaban to warfarin + heparin bridging"", ""Initiate digoxin"", ""Initiate amiodarone IV"", ""DC cardioversion"", ""Carotid Doppler""]",D,DC cardioversion,"DC cardioversion is indicated in this woman who is shocked and still in AF since the onset of her symptoms is <48h. All other options may be considered post DC cardioversion.
+Click here or the image below to access the complete Atrial Fibrillation Fact Sheet"
+Clinical,Medium,"[""Cardiology""]","A 65M presents to the Emergency Department with dyspnoea, palpitations and sweating. It occurred suddenly as he was walking up a hill and has been continuous since then. He has had a recent cold for the last week. He has a history of hypertension, type 2 diabetes mellitus and COPD and is on ramipril, metformin, salbutamol, seretide and theophylline. He is a chronic smoker and drinks 4 stubbies of beer a night. On examination he has an irregular pulse and is tachycardic and tachypnoeic. Which of the following is most appropriate in his immediate management?","[""Chemical cardioversion"", ""Electrical cardioversion"", ""Aspirin"", ""\u00df blockers"", ""Digoxin""]",D,ß blockers,"Cardioversion is only indicated in patients with AF for known duration of <48h. Rate control and anticoagulation is appropriate for patients with AF of unknown duration or >48h. Rate control can be established with ßB or CCB. Digoxin is less effective compared to ßB and CCB and carries a high risk of toxicity, especially in elderly patients. It should be generally reserved for patients whose rate isn’t adequately controlled by ßB or CCBs.
+
+Source: https://www.uptodate.com/contents/control-of-ventricular-rate-in-atrial-fibrillation-pharmacologic-therapy?topicRef=1022&source=see_link#H17
+Click here or the image below to access the complete Atrial Fibrillation Fact Sheet"
+Clinical,Medium,"[""Cardiology""]",A 60M presents with palpitations and dyspnoea. He has a background of hypertension and type 2 diabetes mellitus. His ECG showed an irregularly irregular narrow complex tachycardia. Which of the following isn’t indicated in his management?,"[""Carotid USS"", ""\u00df blockers"", ""Amiodarone"", ""Aspirin + clopidogrel"", ""Warfarin""]",D,Aspirin + clopidogrel,"This man is experiencing AF and initial management is to establish rate or rhythm control followed by stroke prevention with anticoagulation. AF has a high risk of clot embolism to the carotids thus a carotid USS is recommended after diagnosis. Aspirin + clopidogrel are associated with a higher risk of stroke, embolism and AMI vs anticoagulation thus have no role in stroke prevention.
+
+Source: https://www.nps.org.au/australian-prescriber/articles/current-management-of-atrial-fibrillation#drug-therapies-for-preventing-stroke 
+Click here or the image below to access the complete Atrial Fibrillation Fact Sheet"
+Clinical,Medium,"[""Cardiology""]","A 65-year-old male presents to the Emergency Department with dyspnoea, palpitations and sweating. It occurred suddenly as he was walking up a hill and has been continuous since then. He has had a recent cold for the last week. He has a history of hypertension, type 2 diabetes mellitus and COPD. He is on ramipril, metformin, salbutamol, seretide and theophylline. He is a chronic smoker and drinks 4 stubbies of beer a night. On examination he has an irregular pulse and is tachycardic and tachypnoeic. Which of the following findings would be the least likely trigger of this arrhythmia?","[""Ramipril"", ""Alcohol"", ""Salbutamol"", ""Seretide"", ""Theophylline""]",A,Ramipril,"Many drugs can trigger AF. Some of these drugs are summarised in the following table.
+
+System
+
+Drugs
+
+CVS
+
+Acetylcholine
+
+Adenosine
+
+Dobutamine
+
+Flecainide
+
+Amiodarone
+
+Atenolol
+
+Digoxin
+
+Diltiazem
+
+Dopamine
+
+Isosorbide mononitrate
+
+Thiazides
+
+Verapamil
+
+Respiratory
+
+Theophylline
+
+Salbutamol
+
+Corticosteroids
+
+Fluticasone
+
+Ipratropium
+
+Salmeterol
+
+CNS
+
+Atropine
+
+Clozapine
+
+Fluoxetine
+
+Olanzapine
+
+Sumatriptan
+
+Genitourinary
+
+Sildenafil
+
+Miscellaneous
+
+ETOH
+
+Bisphosphonates
+
+Caffeine
+
+Nicotine
+
+Source: https://www.ncbi.nlm.nih.gov/pmc/articles/PMC5531271/
+
+Click here or the image below to access the complete Atrial Fibrillation Fact Sheet"
+Clinical,Easy,"[""Cardiology"", ""Ischaemic Heart Disease""]","A 55-year-old male presents to the emergency department at 10pm with central chest pain beginning yesterday night with associated dyspnoea and nausea. He has a history of gastro-oesophageal reflux, depression and hypertension. He is a long term smoker but doesn’t drink alcohol. ECG revealed no abnormalities apart from a sinus tachycardia and cardiac troponins were within the normal range. What is the next best step in his management?","[""Abdo-xray"", ""Continuous ECG monitoring"", ""Aspirin 300mg stat"", ""GTN s/l"", ""Erect chest x-ray""]",E,Erect chest x-ray,"Troponin levels peak at 12-24h and would’ve peaked in this gentleman if there were evidence of cardiac damage. Furthermore, the absence of ischaemic changes on ECG makes an AMI less likely. Aspirin and GTN aren't indicated unless there is evidence of myocardial ischaemia. Continuous ECG monitoring is also not essential given the unlikelihood of cardiac pathology. Many diseases can mimic an AMI and thus exclusion of other diagnoses is the next best step. Erect chest x-ray can pick up other pathologies which may also cause chest pain such as a perforated peptic ulcer.
+
+Click here or the image below to access the complete Ischaemic Heart Disease Fact Sheet"
+Clinical,Medium,"[""Cardiology""]",A 3 week old term baby is brought in with failure to thrive and poor weight gain. Her mother reports that she tends to go blue with feeding and crying. There were no issues with the pregnancy or delivery. Examination revealed a systolic murmur at the left sternal edge. CXR showed a boot shaped heart. Which of the following findings would be present for this diagnosis?,"[""Atrial septal defect"", ""Aortic stenosis"", ""Pulmonary stenosis"", ""Patent ductus arteriosus"", ""LV hypertrophy""]",C,Pulmonary stenosis,"This child is suffering from Tetralogy of Fallot which is characterised by a ventricular septal defect, pulmonary stenosis, RV hypertrophy and overriding aorta. Typical symptoms include cyanosis and SOB on exertion due to deoxygenated blood entering the systemic circulation. This may then result in poor feeding and failure to thrive. Toddlers typically squat which increases systemic vascular resistance and aortic pressure and thus decreases right to left ventricular shunting. Diagnosis is by CXR which classically shows a boot shaped heart and echocardiogram.
+
+Source: https://www.msdmanuals.com/professional/pediatrics/congenital-cardiovascular-anomalies/tetralogy-of-fallot"
+Clinical,Easy,"[""Cardiology""]","A 1 day old newborn is cyanosed and has problems breathing. On examination she is tachycardic and tachypnoeic and becomes sweaty with worsened cyanosis when trying to feed. Out of the following, which is the most likely diagnosis?","[""Ventricular septal defect"", ""Atrial septal defect"", ""Patent ductus arteriosus"", ""Aortic stenosis"", ""Tetralogy of Fallot""]",E,Tetralogy of Fallot,"Congenital heart defects can be classified into cyanotic and acyanotic lesions. Cyanotic lesions are a result of deoxygenated blood entering the systemic circulation due to right to left shunting such as in Tetralogy of Fallot or transposition of the great arteries. Acyanotic lesions include septal defects, aortic stenosis, pulmonary stenosis, patent ductus arteriosus and coarctation of the aorta. These typically present initially with congestive heart failure due to increased right sided pressures. Cyanosis can occur later on when chronic left to right shunting leads to pulmonary hypertension and a reversal of the shunt, when it is labelled Eisenmenger’s syndrome.
+
+Source: https://www.aafp.org/afp/1999/0401/p1857.html"
+Clinical,Easy,"[""Cardiology""]",Which of the following is false about ventricular septal defects?,"[""Always require surgical repair"", ""Are the most common congenital heart defect"", ""Causes acyanotic congenital defects"", ""Has a louder murmur with smaller defects"", ""May present with congestive heart failure""]",A,Always require surgical repair,"Ventricular septal defects are the most common congenital heart defect. Due to left to right shunting, neonates are acyanotic early on, however may present with symptoms of congestive heart failure eg. SOB and failure to thrive. The murmur is louder and harsher with small defects. Small defects often close spontaneously and may not require medical or surgical therapy.
+
+Source: https://www.msdmanuals.com/professional/pediatrics/congenital-cardiovascular-anomalies/ventricular-septal-defect-vsd"
+Clinical,Easy,"[""Cardiology""]","A 29-year-old male presents with a 4 day history of fever and flu like symptoms. On examination he displayed bruises on three of his nails, painful nodules on his hands, unintentional weight loss and a new onset murmur. Investigations came back showing anaemia, leukocytosis, haematuria, positive rheumatoid factor and positive blood cultures for Staph. aureus. Which of the following is the most likely diagnosis?","[""Rheumatoid arthritis"", ""Infective endocarditis"", ""Chronic myeloid leukaemia"", ""Rheumatic fever"", ""Post-infectious glomerulonephritis""]",B,Infective endocarditis,"The findings are consistent with infective endocarditis. Rheumatoid factor can be positive in up to 50% of patients with IE. Rheumatic fever is caused by group A streptococci and normally presents with a polyarthritis and painless subcutaneous nodules. Post-infectious glomerulonephritis is also usually caused by group A streptococci, is more common in children and presents with frank haematuria and possibly proteinuria, HTN, oedema, impaired eGFR and oliguria. CML is usually diagnosed in an older age group and is asymptomatic earlier on with a gradual onset of constitutional sx.
+
+The findings are consistent with infective endocarditis. Rheumatoid factor can be positive in up to 50% of patients with IE. Rheumatic fever is caused by group A streptococci and normally presents with a polyarthritis and painless subcutaneous nodules. Post-infectious glomerulonephritis is also usually caused by group A streptococci, is more common in children and presents with frank haematuria and possibly proteinuria, HTN, oedema, impaired eGFR and oliguria. CML is usually diagnosed in an older age group and is asymptomatic earlier on with a gradual onset of constitutional sx."
+Clinical,Medium,"[""Cardiology""]",Which of the following is not an absolute contraindication to fibrinolysis?,"[""Active bleeding"", ""Ischaemic stroke <3 months ago"", ""Known malignant intracranial neoplasm"", ""Recent internal bleeding <4 weeks ago"", ""Prior intracranial haemorrhage""]",D,Recent internal bleeding <4 weeks ago,"The absolute contraindications for fibrinolysis include:
+
+Active bleeding or bleeding diathesis/ current anticoagulation
+
+Significant closed head or facial trauma <3 months
+
+Suspected aortic dissection
+
+Prior intracranial haemorrhage
+
+Ischaemic stroke <3 months
+
+Known structural cerebral vascular lesion
+
+Known malignant intracranial neoplasm
+
+Relative contraindications include:
+
+Current anticoagulant use
+
+Recent trauma/ surgery <3 weeks
+
+Prolonged CPR (>10 min)
+
+Recent internal bleeding (<4 weeks)
+
+Active peptic ulcer
+
+BP >180/110 or history of severe and poorly controlled HTN
+
+Ischaemic stroke >3 months ago
+
+Pregnancy
+
+Source: https://www.aci.health.nsw.gov.au/__data/assets/pdf_file/0007/274138/acs-therapy-algorithm-web-secure.pdf"
+Clinical,Easy,"[""Cardiology""]",Which of the following is true of heart failure?,"[""Ejection fraction \u226440% is diagnostic of heart failure"", ""Heart failure always results in reduced cardiac output"", ""Pulmonary emboli can cause LV failure"", ""The most common cause of RV failure is LV failure"", ""Mitral stenosis can cause cor pulmonale""]",D,The most common cause of RV failure is LV failure,"Heart failure can be classified as heart failure with reduced or preserved ejection fraction. Reduced ejection fraction is LVEF ≤40% and indicative of systolic HF. Preserved ejection fraction is LVEF ≥50% and indicative of diastolic HF. High output heart failure is a result of conditions requiring a persistently high cardiac output such as anaemia or thyrotoxicosis, leading to an eventual inability of the heart to maintain these requirements. Pulmonary emboli can lead to RV failure due to increased pulmonary pressures. Cor pulmonale is RV failure caused by lung disorders eg. COPD. Mitral stenosis is a cardiac cause of RV failure. The most common cause of RV failure is LV failure but other causes include any cause of raised pulmonary pressures, tricuspid stenosis or regurgitation or mitral stenosis.
+Click here or the image below to access the complete Heart Failure Fact Sheet"
+Clinical,Medium,"[""Cardiology""]","Mrs HF is a 67-year-old female recently diagnosed with congestive heart failure. She has been experiencing symptoms of increased exertional dyspnoea, fatigue, orthopnoea and decreasing exercise tolerance for 6 months. She has a history of hypertension, atrial fibrillation and type II diabetes mellitus. Which of the following medications is not indicated in her management?","[""ACEI"", ""\u00df-Blocker"", ""CCB"", ""Diuretic"", ""Digoxin""]",C,CCB,"ACEI improve mortality in patients with reduced LVEF by reducing preload and afterload and cardiac remodelling. ßB reduce preload and afterload and decrease oxygen demand of the heart. Diuretics relieve pulmonary and peripheral oedema secondary to  RAS activation in heart failure. Digoxin is indicated in patients with chronic CHF and AF to control ventricular rate. CCB may precipitate CHF due to the risk of bradycardia and decreased contractility.
+
+Click here or the image below to access the complete Heart Failure Fact Sheet"
+Clinical,Easy,"[""Cardiology""]",A 70-year-old female presents complaining of dyspnoea when lying down at night and not being able to walk as far before becoming short of breath. She also mentions that she’s put on 5kg in the last 3 months but has not had any changes to her diet or lifestyle. Her legs also seem swollen. Which of the following clinical signs would not be expected on clinical examination?,"[""Elevated JVP"", ""Bibasal crackles"", ""Sinus bradycardia"", ""Hepatomegaly"", ""Pulsus alternans""]",C,Sinus bradycardia,"This lady is suffering from the classical symptoms of congestive heart failure. Clinical signs of heart failure include signs of fluid overload eg. tachypnoea, SOB, productive cough, paroxysmal nocturnal dyspnoea, orthopnoea, elevated JVP, crackles and peripheral oedema. Sinus tachycardia rather than bradycardia is seen in heart failure. Hepatomegaly is caused by back pressure leading to portal hypertension. Pulsus alternans is a pulse wave showing alternating strong and weak beats, indicating left ventricular systolic impairment.
+
+Source: https://www.msdmanuals.com/professional/cardiovascular-disorders/heart-failure/heart-failure-hf#v936075
+Click here or the image below to access the complete Heart Failure Fact Sheet"
+Clinical,Easy,"[""Cardiology""]",Which of the following is true of heart failure?,"[""Ejection fraction \u226440% is diagnostic of heart failure"", ""Heart failure always results in reduced cardiac output"", ""Pulmonary emboli can cause LV failure"", ""The most common cause of RV failure is LV failure"", ""Mitral stenosis can cause cor pulmonale""]",D,The most common cause of RV failure is LV failure,"Heart failure can be classified as heart failure with reduced or preserved ejection fraction. Reduced ejection fraction is LVEF ≤40% and indicative of systolic HF. Preserved ejection fraction is LVEF ≥50% and indicative of diastolic HF. High output heart failure is a result of conditions requiring a persistently high cardiac output such as anaemia or thyrotoxicosis, leading to an eventual inability of the heart to maintain these requirements. Pulmonary emboli can lead to RV failure due to increased pulmonary pressures. Cor pulmonale is RV failure caused by lung disorders eg. COPD. Mitral stenosis is a cardiac cause of RV failure. The most common cause of RV failure is LV failure but other causes include any cause of raised pulmonary pressures, tricuspid stenosis or regurgitation or mitral stenosis.
+
+Source: https://www.msdmanuals.com/professional/cardiovascular-disorders/heart-failure/heart-failure-hf#v936075
+
+Click here or the image below to access the complete Heart Failure Fact Sheet"

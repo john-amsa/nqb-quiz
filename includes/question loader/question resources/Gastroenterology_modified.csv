@@ -1,0 +1,162 @@
+type,difficulty,topic,question_stem,answer_options,correct_index,correct_text,explanation
+Clinical,Easy,"[""Gastroenterology""]","Paul, a 29-year-old male farmer presents to the emergency department with a 24-hour history of worsening abdominal pain that started in the umbilical region and has migrated to the right iliac fossa. He has had nausea for the past 6 hours and has vomited 3 times. About half an hour ago, the pain suddenly got much worse, and on the car ride here, every bump in the road made Paul scream with pain. He has no relevant medical history, no allergies, and has eaten nothing today. On examination there is generalised abdominal pain and guarding, and Paul has a temperature of 38.6˚ but is haemodynamically stable.
+
+Your consultant has decided on Paul’s management plan and has referred to a surgeon.  She suggests you write up some antibiotics for Paul.
+
+What regimen would be most appropriate to give Paul in this situation?","[""Gentamicin + amoxicillin + metronidazole"", ""Piperacillin + tazobactam"", ""Metronidazole"", ""Amoxicillin + clavulanic acid (augmentin)"", ""Cephalexin""]",A,Gentamicin + amoxicillin + metronidazole,"From eTG:
+
+Peritonitis due to perforated viscous is usually a polymicrobial infection with aerobic and anaerobic bowel flora. Surgery is usually required. For empirical therapy, use:
+Gentamicin PLUS amoxy/ampicillin PLUS metronidazole"
+Clinical,Medium,"[""Gastroenterology""]","Jim, a 54-year-old man has been admitted to hospital for acute pancreatitis. In the 12 hours since his admission, Jim reported feeling some tingling and numbness around his mouth and lips as well as muscle cramps and spasms. An ECG was taken and shows QT prolongation and an arrhythmia.
+
+What would be the most likely cause of Jim’s symptoms?","[""Thiamine deficiency"", ""Hyperkalaemia"", ""Hypocalcaemia"", ""Alcohol withdrawal"", ""Hypoglycaemia""]",C,Hypocalcaemia,"Hypocalcaemia is a well-known complication of pancreatitis. It can cause sensation changes such as tingling and numbness, tetany (muscle cramps and spasms), as well as cardiac changes shown on ECG.
+
+ See UptoDate"
+Clinical,Medium,"[""Gastroenterology"", ""Peptic Ulcer Disease""]","Dave, a 45-year-old man comes to the GP due to a ‘burning’ recurrent abdominal pain. It tends to occur  ~2 hours after meals. An abdominal CT scan shows an ulcer.
+
+What is the likely location of this ulcer in the gastrointestinal tract?","[""Oesophagus"", ""Lesser curvature"", ""Greater curvature"", ""Antrum"", ""Duodenum""]",E,Duodenum,"Duodenum – gastric ulcers are more likely to cause pain 15-30 minutes post-prandially whereas duodenal ulcers tend to be 1-3 hours after meals.
+ 
+
+https://patient.info/doctor/peptic-ulcer-disease
+
+
+Click the link below to access the Peptic Ulcer Disease factsheet:
+
+
+
+https://amsameded.org.au/resources/pluginfile.php/4892/mod_resource/content/1/Peptic%20Ulcer%20Disease.pdf"
+Clinical,Medium,"[""Gastroenterology"", ""Inflammatory Bowel Disease""]","Melanie, a 21-year old female presents to your GP’s office for a refill of her sulfasalazine prescription. She says she takes it for ‘gut issues’ and she no longer gets bloody diarrhoea thanks to taking it.
+
+Where in the gastrointestinal tract would Melanie’s pathology have likely started?","[""Ascending colon"", ""Duodenum"", ""Oesophagus"", ""Rectum"", ""Ileum""]",D,Rectum,"Melanie likely has ulcerative colitis, which begins in the rectum and ascends. Crohn’s disease would be less likely to cause bloody diarrhoea and patients do not tend to respond as favourably to 5-ASA drugs such as sulfasalazine.
+
+ 
+
+https://patient.info/doctor/ulcerative-colitis-pro
+
+
+
+
+Click here or the image below to access the complete AMSA Inflammatory Bowel Disease Fact Sheet"
+Clinical,Hard,"[""Gastroenterology""]","Jen, a 28-year-old woman, is brought to the doctor as she has been getting increasingly forgetful and confused over the past couple of months. She has also had some abdominal distension. On examination Jen has mild hepatomegaly and shifting dullness, as well as a shuffling gait and a slight tremor. A liver ultrasound shows cirrhosis. Jen thinks she may have had some family who suffered a similar kind of thing but is not certain.
+
+Which of the following tests would be most useful to confirm the suspected diagnosis?","[""Iron studies"", ""Anti-smooth muscle antibodies"", ""Alpha-fetoprotein"", ""AST:ALT ratio"", ""Serum ceruloplasmin""]",E,Serum ceruloplasmin,"The correct answer is Serum ceruloplasmin. Jen is likely suffering from Wilson disease. This is a familial condition where copper accumulates in the body such as in the liver. It can cause liver dysfunction, haemolytic anaemia, and dementia. The accumulation can also show as Kayser-Fleischer rings in the eyes (gold rings).
+
+Other options would be secondary differentials in cases such as this with a familial link, liver dysfunction and dementia.
+
+Ferritin on iron studies would be raised in cases such as haemachromatosis. Anti-smooth muscle antibodies are indicative of autoimmune hepatitis. Alpha-feto protein can indicate hepatocellular carcinoma. AST:ALT ratio can help to differentiate alcoholic and viral hepatitis.
+
+ 
+
+https://patient.info/doctor/wilsons-disease-pro"
+Clinical,Easy,"[""Gastroenterology""]","Pam is a 17-year-old female student brought to the ED with abdominal pain, distension, watery diarrhoea and a fever. She is diagnosed with toxic megacolon after getting an urgent X-ray. Her past medical history includes an abscess that was drained several weeks ago, for which she recently finished a course of cephalexin. She is fully vaccinated.
+
+What is the most likely pathogen causing Pam’s symptoms?","[""Escheria coli"", ""Klebsiella"", ""Streptococcus mutans"", ""Clostridium difficile"", ""Clostridium tetani""]",D,Clostridium difficile,"In a patient with abdominal pain, distension, fever and diarrhoea with a recent history of antibiotic use, Clostridium difficile should be considered likely. E coli can cause toxic megacolon through infectious colitis however it is rarer and does not have an association with antibiotic use. Klebsiella is unlikely to cause infectious colitis and/or toxic megacolon. Strep mutans is normal as part of the GIT flora and does not cause toxic megacolon. C tetani causes muscle paralysis and is prevented using the tetanus vaccine.
+
+ 
+
+https://patient.info/doctor/pseudomembranous-colitis
+
+ 
+
+https://patient.info/health/diarrhoea/clostridium-difficile-c-diff"
+Preclinical,Easy,"[""Gastroenterology"", ""GORD""]","Ursula, a 45-year-old obese woman comes to the doctor for abdominal pain. It has been happening over the past 18 months – a discomfort usually occurring after meals in particular when she lies down. When she goes to bed at night she also finds she has a cough. Ursula is afebrile and has no obvious abdominal examination abnormalities. You prescribe her a drug to help with her symptoms as well as advising lifestyle changes.
+
+What is the mechanism of action of the drug you would most likely prescribe in this situation?
+","[""H+/K+ ATPase inhibitor"", ""Na+/K+ ATPase inhibitor"", ""Increased conductivity of K+ channels"", ""Increased frequency of K+ channels opening"", ""Increased duration of Cl- channels opening""]",A,H+/K+ ATPase inhibitor,"Ursula is presenting with the symptoms of GORD and is likely to be treated with a proton pump inhibitor such as esomeprazole, which acts by inhibiting H+/K+ ATPase (proton pump)
+
+ 
+
+https://patient.info/doctor/gastro-oesophageal-reflux-disease#nav-5
+
+ePharmacology
+
+ 
+
+
+Please click here to access the GORD factsheet.
+
+https://amsameded.org.au/resources/pluginfile.php/6339/mod_resource/content/1/GORD%20%28Round%201%29.pdf"
+Clinical,Medium,"[""Gastroenterology""]","Kelly, a 24-year-old G2P2 mother is referred to you with concerns about her newborn baby Allie. Allie has been showing signs of respiratory distress after her first feed – seeming to choke and drool. Kelly’s previous child had no such issues and she is quite concerned. A nasogastric tube is inserted but cannot be visualised in the stomach on X-ray.
+
+What is the most likely diagnosis in this case?","[""Duodenal atresia"", ""Oesophageal atresia"", ""Pyloric stenosis"", ""Malrotation with volvulus"", ""Hirschprung disease""]",B,Oesophageal atresia,"This is the typical presentation of oesophageal atresia – where there is a lack of connection between the oesophagus and stomach. Infants can become cyanotic as they feed when the larynx spasms to avoid food entering the lungs. Other options here would not obstruct an NGT passing through to the stomach or cause respiratory difficulties with feeding.
+
+ 
+
+https://patient.info/doctor/oesophageal-atresia"
+Clinical,Medium,"[""Gastroenterology""]","Nitesh, a 48-year-old man, presents to you having suffered with nausea on and off for 5 years, with occasional vomiting. He had a gastroscope 4 years ago which showed a pattern of gastritis and chronic inflammation but no atrophy. Nitesh did attend follow up for it. Today, you order another endoscopy and the subsequent biopsy results show a well-differentiated adenocarcinoma confined to the mucosa.
+
+What is the most likely risk factor for this cancer?
+","[""Helicobacter pylori infection"", ""Alcohol abuse"", ""NSAID use"", ""Vitamin B12 deficiency"", ""Inherited APC gene mutation""]",A,Helicobacter pylori infection,"The chronic inflammation caused by H pylori promotes the development of adenocarcinoma – early gastric cancer (EGC). Alcohol abuse and NSAID use are more likely to cause more acute changes, and B12 gastritis is generally atrophic. Inherited APC mutations are not associated with EGC.
+
+https://patient.info/doctor/helicobacter-pylori-pro"
+Clinical,Medium,"[""Gastroenterology""]","Francesa, a 48-year old female, has had vague abdominal pain and nausea for the last 3 years with no loss of weight. She has tried antacid medications which do not seem to help, and she does NOT experience difficulty eating or heartburn following meals. A gastroscope shows erythema of the antral mucosa with no apparent masses or ulcerations. On biopsy, there is evidence of a mucosal non-specific chronic gastritis.
+
+What is the most likely diagnosis?
+","[""Zollinger-Ellison syndrome"", ""Helicobacter pylori infection"", ""Adenocarcinoma"", ""Crohn\u2019s disease"", ""Pernicious anaemia""]",B,Helicobacter pylori infection,"H pylori infection is associated with chronic gastritis as well as peptic ulcer disease. Zollinger-Ellison is quite rare and would involve a neoplasm with acid secretion. Pernicious anaemia would result in B12 depletion and atrophy. Adenocarcinoma would present with mass or ulceration. Crohn’s disease in the stomach is quite rare and would be transmural.
+
+https://patient.info/doctor/helicobacter-pylori-pro
+
+https://www.ncbi.nlm.nih.gov/pubmed/1307646"
+Clinical,Easy,"[""Gastroenterology"", ""approach to upper GI bleeding""]","Oscar, a 38-year old man with no known history of alcohol abuse, presents to the ED vomiting blood. He went out binge drinking after losing his job and has been forcefully vomiting on and off for 3 hours now. He says it has been very painful. On examination he is afebrile, HR 110bpm, RR12, BP 97/55 lying down. There is no abdominal distension, and bowel sounds are present.
+
+What is the most likely diagnosis?
+
+","[""Oesophageal varices"", ""Barrett\u2019s oesophagus"", ""Mallory-Weiss tear"", ""Zenker\u2019s diverticulum"", ""Oesophageal cancer""]",C,Mallory-Weiss tear,"The forceful vomiting is likely to have caused a Mallory-Weiss tear, which can bleed profusely. Oesophageal varices could also be considered but without previous history to suggest cirrhosis or portal hypertension tears are more likely.
+
+ 
+
+https://patient.info/doctor/mallory-weiss-syndrome-pro
+
+
+Please click here to access the approach to upper GI bleeding factsheet.
+
+https://amsameded.org.au/resources/pluginfile.php/4893/mod_resource/content/1/Approach%20to%20Upper%20GI%20Bleeding.pdf"
+Clinical,Medium,"[""Gastroenterology""]","Shanti, a 31-year old woman, presents to the GP for her first check-up in 10 years. She mentions on history that she has had bloody diarrhoea intermittently for years now. She has no other major medical issues. Abdominal examination is normal and there are no lesions palpable on digital rectal examination, but a stool sample is returned positive for occult blood. Colonoscopy shows erythematous ulceration extending from the rectum through to midway along the transverse colon. Biopsy shows acute and chronic inflammation and superficial mucosal ulceration.
+
+This patient’s condition puts her at the greatest risk of which of the following?
+","[""Diverticulitis"", ""Sclerosing cholangitis"", ""Appendicitis"", ""Perirectal fistula"", ""Non-hodgkin-lymphoma""]",B,Sclerosing cholangitis,"Shanti has ulcerative colitis, which predisposes patients to sclerosing cholangitis. Diverticulitis is more related to fibre intake, fistulas are more related to Crohns disease. UC is associated with a higher risk of adenocarcinoma not lymphoma.
+
+ 
+
+https://patient.info/doctor/ulcerative-colitis-pro"
+Clinical,Medium,"[""Gastroenterology"", ""Colorectal Cancer""]","Hiro, a 37-year-old man, presents for bowel screening due to a family history of colorectal cancer. Abdominal examination is normal however his faecal occult blood test returns a positive result. On follow-up colonoscopy, 6 polyps are found in the ascending colon. 2 are small tubular adenomas, 3 are 1cm tubulovillous adenomas, and 1 is a 2cm sessile adenoma in the caecum which on further investigation shows a well-differentiated adenocarcinoma.
+
+What is the most likely underlying cause of this pathology?","[""Chronic ulcerative colitis"", ""Familial adenomatous polyposis"", ""Gardner syndrome"", ""Peutz-Jegher\u2019s syndrome"", ""Hereditary non-polyposis colorectal carcinoma""]",E,Hereditary non-polyposis colorectal carcinoma,"Hereditary non-polyposis colorectal carcinoma. A young presentation for colorectal cancer suggests an aggressive course.The small number of polyps indicates it is unlikely to be Gardner syndrome or FAP which have many more polyps. Peutz-jeghers has hamartomous polyps. There is no reason to think he has ulcerative colitis which can be a risk for adenocarcinoma and can show ‘pseudopolyps’.
+
+ 
+
+https://www.bowelcanceraustralia.org/genetics
+
+https://patient.info/health/colon-rectal-bowel-cancer-colorectal/bowel-cancer-screening
+
+
+
+
+Click here or the image below to access the complete AMSA Colorectal Cancer Fact Sheet"
+Clinical,Easy,"[""Gastroenterology""]","Simon, a 27-year-old male baker presents to the emergency department around lunchtime with acute abdominal pain. Initially it was periumbilical and achy in nature however over the last 90 minutes it has moved to the right lower quadrant and gotten sharper, and he has begun to feel nauseated and has had some diarrhoea. Simon has never had pain of this nature before and cannot think of any triggers. He has only eaten his usual breakfast of cereal this morning. He has no relevant past medical history. On examination there is tenderness at a point between the right anterior superior iliac spine and the umbilicus.
+
+What is the most likely diagnosis in this case?
+
+","[""Diverticulitis"", ""Testicular torsion"", ""Appendicitis"", ""Cholecystitis"", ""Crohn's disease""]",C,Appendicitis,"From UptoDate:
+
+""In the classic presentation [of appendicitis], the patient describes the onset of abdominal pain as the first symptom. The pain is typically periumbilical in nature with subsequent migration to the right lower quadrant as the inflammation progresses. Although considered a classic symptom, migratory pain occurs only in 50 to 60 percent of patients with appendicitis. Nausea and vomiting, if they occur, usually follow the onset of pain. Fever-related symptoms generally occur later in the course of illness.""
+
+
+
+Click here or the image below to access the complete Fact Sheet"
+Preclinical,Medium,"[""Gastroenterology""]","Ted a 30-year-old male electrician presents to the emergency department with a 4-hour history of worsening abdominal pain, nausea and vomiting. He has only eaten his usual breakfast of toast this morning. He has no relevant past medical history. On examination passive extension of the right hip elicits right lower quadrant pain.
+
+What examination sign is this and what is it associated with?","[""Psoas sign \u2013 associated with a pelvic appendix"", ""Psoas sign \u2013 associated with a retrocaecal appendix"", ""Rosving\u2019s sign \u2013 associated with a pelvic appendix"", ""Obturator sign \u2013 associated with a pelvic appendix"", ""Obturator sign \u2013 associated with a retrocaecal appendix""]",B,Psoas sign – associated with a retrocaecal appendix,"From UptoDate:
+
+Commonly described physical signs [of appendicitis] include:
+
+●McBurney's point tenderness is described as maximal tenderness at 1.5 to 2 inches from the anterior superior iliac spine (ASIS) on a straight line from the ASIS to the umbilicus (sensitivity 50 to 94 percent; specificity 75 to 86 percent).
+
+●Rovsing's sign refers to pain in the right lower quadrant with palpation of the left lower quadrant. This sign is also called indirect tenderness and is indicative of right-sided local peritoneal irritation (sensitivity 22 to 68 percent; specificity 58 to 96 percent).
+
+●The psoas sign is associated with a retrocecal appendix. This is manifested by right lower quadrant pain with passive right hip extension. The inflamed appendix may lie against the right psoas muscle, causing the patient to shorten the muscle by drawing up the right knee. Passive extension of the iliopsoas muscle with hip extension causes right lower quadrant pain (sensitivity 13 to 42 percent; specificity 79 to 97 percent).
+
+●The obturator sign is associated with a pelvic appendix. This test is based on the principle that the inflamed appendix may lie against the right obturator internus muscle. When the clinician flexes the patient's right hip and knee, followed by internal rotation of the right hip, this elicits right lower quadrant pain (sensitivity 8 percent; specificity 94 percent). The sensitivity is low enough that experienced clinicians no longer perform this assessment.
+
+
+Click here or the image below to access the complete Fact Sheet"
