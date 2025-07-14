@@ -74,6 +74,7 @@ class Nqb_quiz_Question_Loader {
      */
     public function get_loaded_questions() {
         // Get the questions from the CSV loader
+        error_log(print_r($this->csv_loader->get_questions(), true));
         return $this->csv_loader->get_questions();
     }
 

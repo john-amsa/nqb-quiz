@@ -4,7 +4,7 @@
 class Nqb_quiz_Question_Creator {
 
     // Define constants for quiz shortcode and metadata
-    const QUIZ_ID = 177; // Replace with your quiz ID
+    const QUIZ_ID = 6; // Replace with your quiz ID
     const ADV_QUIZ_ID = 1; // Replace with your LDAdvQuiz ID
     const TOP_LIST_ID = 1; // Replace with your LDAdvQuiz_toplist ID
 
@@ -88,6 +88,7 @@ class Nqb_quiz_Question_Creator {
      * @param array $taxonomy_terms A list of term system names to assign.
      */
     //this function is a mess todo rm dupes
+    // can probs delete
     function question_add_taxonomy($post_id, $taxonomy_terms) {
         // Ensure $taxonomy_terms is an array
         if (!is_array($taxonomy_terms)) {
@@ -440,214 +441,8 @@ class Nqb_quiz_Question_Creator {
         $this->term_id_lookup = $term_id_lookup;
     }
     
-
-    // private function add_taxonomy($question_id, $all_tags) {
-    //     // Ensure the question is valid
-    //     if (get_post_type($question_id) !== 'sfwd-question') {
-    //         return 'Invalid question ID';
-    //     }
-    
-    //     // Prepare the taxonomy terms array
-    //     $terms = array();
-    
-    //     // Check and assign terms for system, category, and type
-    //     if (!empty($system)) {
-    //         $terms[] = $system;
-    //     }
-    //     if (!empty($category)) {
-    //         $terms[] = $category;
-    //     }
-    //     if (!empty($type)) {
-    //         $terms[] = $type;
-    //     }
-
-    //     $terms[] = "cardiovascular"; // todo: this will need to be fixed
-
-    //     error_log(print_r($terms)); 
-    
-    //     wp_set_post_terms($question_id, $terms, 'question_category', true);
-        
-    //     // Log the assigned terms to verify
-    //     $assigned_terms = wp_get_post_terms($question_id, 'question_category');
-    //     error_log('Assigned terms: ' . print_r($assigned_terms, true));
-    
-        
-    // }
+// 
     
 
 
 }
-
-//     /**
-//      * Associates the question with the quiz using LearnDash's internal settings
-//      *
-//      * @param int $question_id - The ID of the LearnDash question
-//      * @param int $quiz_id - The ID of the LearnDash quiz
-//      */
-//     private function associate_question_with_quiz($question_id, $quiz_id) {
-        
-//             // Log the start of the process
-//             error_log("Starting to associate question ID $question_id with quiz ID $quiz_id.");
-        
-//             // Step 1: Retrieve the current list of questions tied to the quiz
-//             $quiz_questions = get_post_meta($quiz_id, 'ld_quiz_questions', true);
-        
-//             // Initialize the quiz question array if it's empty
-//             if (!$quiz_questions) {
-//                 $quiz_questions = array();
-//                 error_log("No existing questions found for quiz ID $quiz_id. Initializing a new list.");
-//             }
-        
-//             // Step 2: Check if the question is already associated with the quiz
-//             if (!empty($quiz_questions['sfwd-question'])) {
-//                 foreach ($quiz_questions['sfwd-question'] as $existing_question) {
-//                     if ($existing_question['question_id'] == $question_id) {
-//                         $message = "Question ID $question_id is already associated with quiz ID $quiz_id.";
-//                         error_log($message);
-//                         return $message;
-//                     }
-//                 }
-//             }
-        
-//             // Step 3: Add the new question to the quiz question list
-//             $quiz_questions['sfwd-question'][] = array(
-//                 'question_id' => $question_id//,
-//                 // 'points' => 1, // Assign points (default: 1, you can adjust this as needed)
-//                 // 'answer_points' => array(1), // Points for correct answers (default: 1)
-//             );
-        
-//             // Log the addition of the new question
-//             error_log("Adding question ID $question_id to quiz ID $quiz_id.");
-        
-//             // Step 4: Update the quiz with the new list of questions
-//             $update_result = update_post_meta($quiz_id, 'ld_quiz_questions', $quiz_questions);
-        
-//             // Log whether the update was successful
-//             if ($update_result) {
-//                 $success_message = "Successfully associated question ID $question_id with quiz ID $quiz_id.";
-//                 error_log($success_message);
-//                 return $success_message;
-//             } else {
-//                 $error_message = "Failed to associate question ID $question_id with quiz ID $quiz_id.";
-//                 error_log($error_message);
-//                 return $error_message;
-//             }
-//         }
-        
-//    }
-
-
-
-// class Nqb_quiz_Question_Creator { // tried to do too much at once and cant figure out whats broken
-
-    
-//         // Define constants for quiz shortcode and metadata
-//         const QUIZ_ID = 609; // Replace with your quiz ID
-//         const ADV_QUIZ_ID = 17; // Replace with your LDAdvQuiz ID
-//         const TOP_LIST_ID = 17; // Replace with your LDAdvQuiz_toplist ID
-    
-//         public function __construct() {
-//             // Log the initialization of the Question Creator
-//             error_log("Nqb_quiz_Question_Creator initialized.");
-//         }
-
-//         /**
-//          * Creates a LearnDash question from the first question in the list
-//          *
-//          * @param array $questions - Array of Question objects
-//          * @param int $quiz_id - The ID of the LearnDash quiz
-//          */
-//         public function create_questions(array $questions, $quiz_id = self::QUIZ_ID) {
-//             if (empty($questions)) {
-//                 error_log("No questions provided.");
-//                 return;
-//             }
-
-//             // Get the first question from the list
-//             $first_question = $questions[0];
-
-//             error_log("start creating questions");
-
-//             // Create the question in LearnDash
-//             $this->create_question($first_question, $quiz_id);
-//         }
-    
-    
-//         /**
-//          * Creates a LearnDash question using the provided Question object
-//          *
-//          * @param Question $question - The Question object containing details for the LearnDash question
-//          * @param int $quiz_id - The ID of the LearnDash quiz to associate the question with
-//          * @return int|WP_Error - The post ID on success, WP_Error on failure
-//          */
-//         public function create_question(Question $question, $quiz_id = self::QUIZ_ID) {
-//             // Set up the question post data with the stem as content
-//             $question_post = array(
-//                 'post_title'   => wp_strip_all_tags( $question->stem ),
-//                 'post_content' => wp_strip_all_tags( $question->stem ), // Set the question stem as the content
-//                 'post_status'  => 'publish',
-//                 'post_type'    => 'sfwd-question',
-//             );
-    
-//             // Insert the question post into WordPress
-//             $question_id = wp_insert_post($question_post);
-    
-//             if (is_wp_error($question_id)) {
-//                 error_log("Error creating LearnDash question: " . $question_id->get_error_message());
-//                 return $question_id;
-//             }
-    
-//             // Update LearnDash meta for the question
-//             update_post_meta($question_id, 'quiz_id', $quiz_id); // Associate the question with the quiz
-//             update_post_meta($question_id, 'question_type', 'single'); // Assuming multiple choice/single answer
-    
-//             // Prepare the answer options in the format LearnDash expects
-//             $answers = [];
-//             $correct_answer = 1;
-//             foreach ($question->answerOptions as $index => $option) {
-//                 $answers[] = [
-//                     'value' => wp_strip_all_tags( $option->optionText ),
-//                     'isCorrect' => $option->isCorrect ? $correct_answer : 0,
-//                 ];
-//             }
-    
-//             // Update LearnDash answer metadata
-//             update_post_meta($question_id, 'answers', $answers);
-    
-//             // Add explanation to correct and incorrect answer messages
-//             $correct_message = 'Correct! ' . wp_strip_all_tags( $question->explanation );
-//             $incorrect_message = 'Incorrect! ' . wp_strip_all_tags( $question->explanation );
-    
-//             // Set the feedback for correct and incorrect answers
-//             update_post_meta($question_id, 'question_pro', [
-//                 'correctMsg' => $correct_message,
-//                 'incorrectMsg' => $incorrect_message
-//             ]);
-    
-//             // Log success
-//             error_log("LearnDash Question created with ID: " . $question_id);
-    
-//             // Associate the question with the quiz using the constants for shortcode and meta
-//             $this->associate_question_with_quiz($question_id, $quiz_id);
-    
-//             return $question_id;
-//         }
-    
-//         /**
-//          * Associates the question with the quiz using the predefined quiz metadata and constants
-//          *
-//          * @param int $question_id - The ID of the LearnDash question
-//          * @param int $quiz_id - The ID of the LearnDash quiz
-//          */
-//         private function associate_question_with_quiz($question_id, $quiz_id) {
-//             // Associate the question with the quiz in the LearnDash settings
-//             learndash_set_setting($question_id, 'quiz', $quiz_id);
-    
-//             // Log the association
-//             error_log("Question ID " . $question_id . " associated with Quiz ID " . $quiz_id);
-//         }
-    
-    
-
-//     // Add functional methods later
-// }

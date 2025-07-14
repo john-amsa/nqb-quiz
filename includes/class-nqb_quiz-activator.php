@@ -32,7 +32,9 @@ class Nqb_quiz_Activator {
 	public static function activate() {
 		error_log("temporarily making a question loader here");
 		$ql = new Nqb_quiz_Question_Loader();
-        
+
+
+        Nqb_quiz::instance()->create_pages(); //creates the form page
 		
 	}
 

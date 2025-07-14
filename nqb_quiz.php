@@ -75,7 +75,7 @@ require plugin_dir_path( __FILE__ ) . 'includes/class-nqb_quiz.php';
  */
 function run_nqb_quiz() {
 
-	$plugin = Nqb_quiz::instance();
+	$plugin = Nqb_quiz::instance(); //nqb quiz is a singleton
 	$plugin->run();
 
 }

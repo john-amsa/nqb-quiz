@@ -2,6 +2,8 @@
 
 /**
  * The file that defines the core plugin class
+ * 
+ * most of the logic is here
  *
  * A class definition that includes attributes and functions used across both the
  * public-facing side of the site and the admin area.
@@ -63,7 +65,7 @@ class Nqb_quiz {
 
     protected $selector_form = null; // the page id with the selection form on it
 
-    private static $SEARCH_FACTOR = 3;
+    private static $SEARCH_FACTOR = 3; // to speed up searching for questions that fit the user selection
 
 	/**
 	 * Define the core functionality of the plugin.
@@ -132,7 +134,7 @@ class Nqb_quiz {
 		 */
 		require_once plugin_dir_path( dirname( __FILE__ ) ) . 'includes/class-nqb_quiz-loader.php';
 
-        $this->loader = new Nqb_quiz_Loader(); 
+        $this->loader = new Nqb_quiz_Loader();  //loads the questions in from a csv
     
 		/**
 		 * The class responsible for defining internationalization functionality
@@ -269,8 +271,9 @@ class Nqb_quiz {
         $user_selection = $this->retrieve_selection();
         error_log("User selection contents: " . print_r(json_encode($user_selection), true));
 
+        $quiz_size = $user_selection['size'];
         // find the qs that satisfy the selection
-        $filtered_questions = $this->find_questions($user_selection,$pro_questions);
+        $filtered_questions = $this->find_questions($user_selection,$pro_questions,$quiz_size);
 
         // this line turns the filter off for debugging
         // $filtered_questions = $pro_questions;
@@ -335,7 +338,6 @@ class Nqb_quiz {
         return $seen_questions;
     }
     
-    
 
     /**
      * finds the questions which satisfies a user's selection
@@ -373,7 +375,7 @@ class Nqb_quiz {
     //     return $filtered_questions;
     // }
 
-    private function find_questions($user_selection, $pro_questions, $target_count = 500) {
+    private function find_questions($user_selection, $pro_questions, $target_count = 20, $ignore_seen = False) {
         // the array to return
         $filtered_questions = array();
         
@@ -397,6 +399,11 @@ class Nqb_quiz {
             // Process the current batch
             foreach ($current_batch as $question) {
                 $question_id = $question->getQuestionPostId();
+
+                if($this->check_history($question_id)){
+                    continue;
+                }
+
                 $question_terms = wp_get_post_terms($question_id, 'question_category');
                 
                 error_log("Filter Check - User Selection: " . print_r($filter->get_user_selection(), true) . 
@@ -432,6 +439,30 @@ class Nqb_quiz {
                   " out of " . $total_questions . " total questions");
         
         return $filtered_questions;
+    }
+
+    /**
+     * Checks if a question has been seen by the current user
+     * 
+     * @param int $question_id The ID of the question to check
+     * @param int|null $user_id Optional user ID. Defaults to current user
+     * @return bool True if question has been seen, false otherwise
+     */
+    private function check_history($question_id, $user_id = null) {
+        if ($user_id === null) {
+            $user_id = get_current_user_id();
+        }
+        
+        // Get the user's seen questions array
+        $seen_questions = get_user_meta($user_id, 'seen_questions', true);
+        
+        // If no history exists, initialize empty array
+        if (!is_array($seen_questions)) {
+            $seen_questions = array();
+        }
+        
+        // Check if this question is in the history
+        return in_array($question_id, $seen_questions);
     }
     
 
@@ -500,6 +531,19 @@ class Nqb_quiz {
         ob_start();
         ?>
 		<h1> Select your quiz </h1>
+
+        <style>
+        .checkbox-grid {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px 20px;
+            max-width: 100%;
+        }
+
+        .checkbox-item {
+            flex: 1 1 200px; /* Each item tries to take at least 200px, grows/shrinks as needed */
+        }
+        </style>
         <form id="nqb-form">
             <label for="difficulty">Difficulty:</label><br>
             <!-- <select id="difficulty" name="difficulty">
@@ -507,9 +551,9 @@ class Nqb_quiz {
                 <option value="medium">Medium</option>
                 <option value="hard">Hard</option>
             </select><br><br> -->
-            <input type="checkbox" name="difficulty" value="easy"> easy<br>
-            <input type="checkbox" name="difficulty" value="medium"> medium<br>
-            <input type="checkbox" name="difficulty" value="hard"> hard<br><br>
+            <input type="checkbox" name="difficulty" value="easy"> easy 🥱<br>
+            <input type="checkbox" name="difficulty" value="medium"> medium 🤓<br>
+            <input type="checkbox" name="difficulty" value="hard"> hard 🤯<br><br>
 
             <label for="type">Type:</label>
             <select id="type" name="type">
@@ -517,13 +561,28 @@ class Nqb_quiz {
                 <option value="preclinical">PreClinical</option>
             </select><br><br>
 
-            <label for="systems">Systems: (only systems selection works atm)</label><br>
-            <input type="checkbox" name="systems" value="cardiology"> Cardiovascular<br>
-            <input type="checkbox" name="systems" value="respiratory"> Respiratory<br>
-            <input type="checkbox" name="systems" value="gastroenterology"> GIT<br><br>
-
-
-            <input type="checkbox" name="difficulty" value="hard"> hard<br><br>
+            <label for="systems">Systems: </label><br>
+            <div class="checkbox-grid">
+            <label class="checkbox-item"><input type="checkbox" name="systems" value="cardiology"> Cardiovascular</label>
+            <label class="checkbox-item"><input type="checkbox" name="systems" value="respiratory"> Respiratory</label>
+            <label class="checkbox-item"><input type="checkbox" name="systems" value="gastroenterology"> GIT</label>
+            <label class="checkbox-item"><input type="checkbox" name="systems" value="endocrinology"> Endocrine</label>
+            <label class="checkbox-item"><input type="checkbox" name="systems" value="neurology"> Neurology</label>
+            <label class="checkbox-item"><input type="checkbox" name="systems" value="msk rheumatology"> MSK & Rheumatology</label>
+            <label class="checkbox-item"><input type="checkbox" name="systems" value="haematology"> Haematology</label>
+            <label class="checkbox-item"><input type="checkbox" name="systems" value="nephrology & urology"> Renal & Urology</label>
+            <label class="checkbox-item"><input type="checkbox" name="systems" value="infectious diseases"> Infectious Diseases</label>
+            <label class="checkbox-item"><input type="checkbox" name="systems" value="dermatology"> Dermatology</label>
+            <label class="checkbox-item"><input type="checkbox" name="systems" value="surgery & anatomy"> Surgery & Anatomy</label>
+            <label class="checkbox-item"><input type="checkbox" name="systems" value="ophthalmology"> Ophthalmology</label>
+            <label class="checkbox-item"><input type="checkbox" name="systems" value="psychiatry"> Psychiatry</label>
+            <label class="checkbox-item"><input type="checkbox" name="systems" value="paediatrics"> Paediatrics</label>
+            <label class="checkbox-item"><input type="checkbox" name="systems" value="acute care & emergency"> Acute Care & Emergency</label>
+            <label class="checkbox-item"><input type="checkbox" name="systems" value="obstetrics & gynaecology"> Obstetrics & Gynaecology</label>
+            <label class="checkbox-item"><input type="checkbox" name="systems" value="pharmacology"> Pharmacology</label>
+            </div>
+            <label for = "size"> number of questions in the quiz: </label>
+            <input type="number" id="size" name="size" value = 20> <br><br>
 
             <input type="button" id="submit-button" value="Submit">
         </form>

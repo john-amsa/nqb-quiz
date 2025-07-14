@@ -14,7 +14,8 @@ jQuery(document).ready(function($) {
         var formData = {
             difficulty: difficulty,
             type: $('#type').val(),
-            systems: systems
+            systems: systems,
+            size: $( '#size').val()
         };
         
         $.post(uf_ajax.ajax_url, {

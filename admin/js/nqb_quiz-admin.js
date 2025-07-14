@@ -126,6 +126,41 @@
 				}
 			});
 		});
+
+		/* clearing user history*/
+		$('#clear-user-questions').on('click', function() {
+			const username = $('#username-to-clear').val();
+			if (!username) {
+				$('#clear-user-result').html('<span style="color: orange;">Please enter a username</span>');
+				return;
+			}
+	
+			$(this).prop('disabled', true);
+			$('#clear-user-result').html('Processing...');
+	
+			$.ajax({
+				url: nqb_quiz_ajax_object.ajax_url,
+				type: 'POST',
+				data: {
+					action: 'clear_user_question_history',
+					security: nqb_quiz_ajax_object.nonce,
+					username: username
+				},
+				success: function(response) {
+					if (response.success) {
+						$('#clear-user-result').html('<span style="color: green;">' + response.data + '</span>');
+					} else {
+						$('#clear-user-result').html('<span style="color: red;">' + response.data + '</span>');
+					}
+				},
+				error: function() {
+					$('#clear-user-result').html('<span style="color: red;">Server error occurred</span>');
+				},
+				complete: function() {
+					$('#clear-user-questions').prop('disabled', false);
+				}
+			});
+		});
 	});
 
 })(jQuery);

@@ -88,14 +88,16 @@ class Nqb_quiz_Csv_Loader {
      */
     private function create_question_from_row($row, $system) {
         // Columns: Question No.,Preclinical / Clinical,Difficulty Level,Question Stem,Answer Options,Explanation
-        $type = $row[0];  // Clinical/Preclinical
-        $difficulty = $row[1];  // Difficulty Level
-        $system = json_decode($row[2], true);  // Parse JSON array of topics
-        $stem = $row[3];  // Question Stem
-        $answer_options = json_decode($row[4], true);  // Parse JSON array of answer options
-        $correct_index = $row[5];  // Index of correct answer (A-E)
-        $correct_text = $row[6];  // Text of correct answer
-        $explanation = $row[7];  // Explanation
+        //         current wordpress input csv format
+        // source_file,type,difficulty,topic,question_stem,answer_options,correct_index,correct_text,explanation
+        $type = $row[1];  // Clinical/Preclinical
+        $difficulty = $row[2];  // Difficulty Level
+        $system = json_decode($row[3], true);  // Parse JSON array of topics
+        $stem = $row[4];  // Question Stem
+        $answer_options = json_decode($row[5], true);  // Parse JSON array of answer options
+        $correct_index = $row[6];  // Index of correct answer (A-E)
+        $correct_text = $row[7];  // Text of correct answer
+        $explanation = $row[8];  // Explanation
 
         // Check if the stem is empty, skip the question if it is
         if (empty(trim($stem))) {

@@ -126,7 +126,7 @@ class Nqb_quiz_Admin {
 			'manage_options',           // Capability
 			'nqb_quiz_load_csv',        // Menu slug
 			array( $this, 'display_page' ),  // Function to display the page content
-			'dashicons-upload',         // Icon
+			'dashicons-admin-settings',         // Icon
 			80                          // Position
 		);
 	}
@@ -143,6 +143,16 @@ class Nqb_quiz_Admin {
         <h1>Load CSVs</h1>
         <button id="load-csvs" class="button button-primary">Load CSVs</button>
         <p id="csv-loader-result"></p>
+
+		<div class="wrap">
+			
+			<p>Clear the question history for a specific user.</p>
+			<div style="display: flex; gap: 10px; align-items: flex-start;">
+				<input type="text" id="username-to-clear" placeholder="Enter username" class="regular-text">
+				<button id="clear-user-questions" class="button button-secondary">Clear History</button>
+			</div>
+			<p id="clear-user-result"></p>
+		</div>
         
         <hr style="margin: 30px 0;">
         <h2>Danger Zone</h2>
@@ -176,12 +186,20 @@ class Nqb_quiz_Admin {
 		
 		$result = $this->question_loader->run_question_loader();
 
+		$this->clear_all_question_history();
 		// Return a response
 		if ( $result ) {
 			wp_send_json_success( 'CSV files loaded successfully!' );
 		} else {
 			wp_send_json_error( 'Failed to load CSV files.' );
 		}
+	}
+
+	/**
+	 * clears the question history for everyone
+	 */
+	public function clear_all_question_history(){
+		delete_metadata('user',0,'seen_questions','',true);
 	}
 
 	/**
@@ -214,6 +232,34 @@ class Nqb_quiz_Admin {
 
 
 
+	
+
+	/**clears the question history for one particular user */
+	public function clear_user_question_history() {
+		check_ajax_referer('nqb_quiz_nonce', 'security');
+		
+		if (!current_user_can('manage_options')) {
+			wp_send_json_error('Insufficient permissions');
+			return;
+		}
+	
+		$username = sanitize_text_field($_POST['username']);
+		$user = get_user_by('login', $username);
+		
+		if (!$user) {
+			wp_send_json_error('User not found');
+			return;
+		}
+	
+		$deleted = delete_user_meta($user->ID, 'seen_questions');
+		
+		if ($deleted) {
+			wp_send_json_success("Successfully cleared question history for user: $username");
+		} else {
+			wp_send_json_error('Failed to clear question history or no history existed');
+		}
+	}
+
 	/**
 	 * Initialize AJAX actions.
 	 *
@@ -223,7 +269,10 @@ class Nqb_quiz_Admin {
 
 		add_action( 'wp_ajax_load_csvs', array( $this, 'load_csvs' ) );
 		add_action('wp_ajax_delete_all_questions', array($this, 'delete_all_questions'));
+		add_action('wp_ajax_clear_user_question_history', array($this, 'clear_user_question_history'));
+
 		
 	}
+	
 
 }
