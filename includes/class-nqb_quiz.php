@@ -15,6 +15,20 @@
  * @subpackage Nqb_quiz/includes
  */
 
+//  todo
+
+//  quiz engine wise
+//  - autodetect shortcode values
+//  - if no questions selected then no questions display
+//  - randomise
+//  - uf_display_page_id
+//  - is user meta different for everyone?
+//  - move Question to its own file
+//  - system=> $heirachy needs a second extra tags section
+//  - admin section looks really ugly
+//  - default fallback if all questions have been seen
+  
+
 /**
  * The core plugin class.
  *
